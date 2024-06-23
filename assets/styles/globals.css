@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* @font-face {
+  font-family: IranSans;
+  src: url('../fonts/iranSans/IRANSansX-Medium.woff');
+} */
+
+*{
+  text-align: right;
+  direction: rtl;
+  font-family: 'IranSans';
+}

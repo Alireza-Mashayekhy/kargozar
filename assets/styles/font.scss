@@ -1,0 +1,21 @@
+$font_weights: (
+  UltraLight: 200,
+  Light: 300,
+  Medium: 500,
+  Bold: 700,
+);
+
+@mixin font-face($fontFamily, $fileName, $name, $font_weight, $size) {
+  @font-face {
+    font-family: $fontFamily;
+    font-weight: $size;
+    src: url('../fonts/#{$fileName}/#{$name}-#{$font_weight}.woff');
+    font-style: normal;
+  }
+}
+
+@each $font_weight,
+$size in $font_weights {
+  // @include font-face(Yekan Bakh FaNum, 'YekanBakhFaNum', $font_weight, $size);
+  @include font-face(IranSans, iranSans, 'IRANSansX', $font_weight, $size);
+}
