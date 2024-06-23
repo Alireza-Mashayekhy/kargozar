@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 export default function BannerSection() {
     return (
-        <div className="flex bg-primary-1 rounded-3xl">
-            <div className="flex flex-col justify-center gap-10 w-1/2 px-14 text-white">
-                <h2 className="text-3xl font-bold">
+        <div className="flex flex-col-reverse lg:flex-row bg-primary-1 rounded-3xl">
+            <div className="flex flex-col justify-center gap-10 w-full lg:w-1/2 px-5 md:px-14 text-white py-5">
+                <h2 className="text-xl sm:text-3xl font-bold">
                     ترخیص کالا و انجام تشریفات کامل گمرکی از تمامی گمرکات کشور
                 </h2>
-                <p className="text-justify leading-relaxed">
+                <p className="text-justify leading-relaxed text-sm sm:text-base">
                     فرآیند ترخیص کالا امری تخصصی می باشد که حتما نیاز است که
                     توسط شخصی که دانش و تخصص کافی و تجربه لازم را دارد این
                     فرآیند انجام شود. مجموعه کارگزار گمرک با مدیریت کارگزار رسمی
@@ -26,7 +26,7 @@ export default function BannerSection() {
             <Image
                 alt="banner"
                 src={require('@/public/global/banner.png')}
-                className="w-1/2"
+                className="w-full lg:w-1/2"
             />
         </div>
     );

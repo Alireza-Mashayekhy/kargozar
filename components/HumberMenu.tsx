@@ -85,7 +85,7 @@ export default function HumberMenu({
                 onClick={(e) => {
                     closeMenu(e);
                 }}
-                className="absolute left-4 top-4 w-8 h-8"
+                className="absolute left-4 top-4 w-8 h-8 cursor-pointer"
                 color="white"
             />
             <div className="flex flex-row-reverse gap-2.5 justify-around">

@@ -53,7 +53,7 @@ export default function Header() {
                 onClick={() => {
                     setIsMenuOpen(true);
                 }}
-                className="xl:hidden w-8 h-8"
+                className="xl:hidden w-8 h-8 cursor-pointer"
                 color="white"
             />
             <div className="flex gap-11 items-center">

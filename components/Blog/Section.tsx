@@ -35,23 +35,23 @@ export default function BlogSection(props: any) {
     }
 
     return (
-        <div className="flex flex-col gap-8 overflow-hidden">
-            <div className="flex items-center justify-between px-10">
-                <h3 className="text-primary-1 font-bold text-3xl">
+        <div className="flex flex-col gap-4 sm:gap-8 overflow-hidden">
+            <div className="flex items-center justify-between px-2.5 sm:px-10">
+                <h3 className="text-primary-1 font-bold text-xl sm:text-3xl">
                     {props?.title}
                 </h3>
                 <Link
                     href={props?.link || '/'}
-                    className="bg-primary-1 px-8 py-3 text-white rounded-xl font-bold"
+                    className="bg-primary-1 px-4 py-1.5 sm:px-8 sm:py-3 text-white rounded-md sm:rounded-xl font-bold text-xs sm:text-base"
                 >
                     ورود به مجله
                 </Link>
             </div>
-            <div className="bg-primary-2 pt-16 pb-28">
+            <div className="bg-primary-2 pt-7 sm:pt-16 pb-28">
                 <Swiper
                     onSlideChange={(e) => setSliderIndex(e.activeIndex)}
                     ref={sliderRef}
-                    className="w-full relative !px-10 !overflow-visible"
+                    className="w-full relative !px-2.5 sm:!px-10 !overflow-visible"
                     spaceBetween={48}
                     slidesPerView={slidePerView}
                 >

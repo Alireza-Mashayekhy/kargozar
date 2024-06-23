@@ -78,11 +78,11 @@ export default function Home() {
         },
     ];
     return (
-        <div className="flex flex-col gap-16">
-            <div className="flex flex-col gap-16 px-10 pt-44">
+        <div className="flex flex-col gap-10 md:gap-16">
+            <div className="flex flex-col gap-16 px-2.5 md:px-10 pt-28 md:pt-44">
                 <div>
                     <Banner data={banners} />
-                    <div className="w-4/5 bg-white py-6 rounded-2xl shadow-md mx-auto -top-12 relative z-10 flex items-center justify-around">
+                    <div className="w-full sm:w-11/12 md:w-4/5 mt-5 sm:mt-0 bg-white py-3 sm:py-6 rounded-xl sm:rounded-2xl shadow-md mx-auto sm:-top-5 md:-top-12 relative z-10 flex items-center justify-around">
                         {servicesCategories.map((item) => {
                             return (
                                 <div
@@ -92,9 +92,11 @@ export default function Home() {
                                     <Image
                                         alt={item.title}
                                         src={item.image}
-                                        width={70}
+                                        className="w-10 sm:w-16"
                                     />
-                                    <div className="text-xl">{item.title}</div>
+                                    <div className="text-sm sm:text-xl text-center">
+                                        {item.title}
+                                    </div>
                                 </div>
                             );
                         })}

@@ -4,6 +4,7 @@ import '@/assets/styles/font.scss';
 import Header from '@/components/Header';
 import { Toaster } from 'react-hot-toast';
 import BottomNav from '@/components/BottomNav';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -22,6 +23,7 @@ export default function RootLayout({
                 <Header />
                 <BottomNav />
                 {children}
+                <Footer />
             </body>
         </html>
     );
