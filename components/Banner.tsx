@@ -21,10 +21,18 @@ export default function Banner(props: any) {
         sliderRef.current.swiper.slideNext();
     }, []);
 
-    if (props.data.length === 1) {
+    if (!props.data?.length) {
         return (
             <Image
-                className="rounded-3xl shadow-md"
+                className="rounded-3xl shadow-md w-full"
+                alt="default"
+                src={require('@/public/placeholders/image.png')}
+            />
+        );
+    } else if (props.data.length === 1) {
+        return (
+            <Image
+                className="rounded-3xl shadow-md w-full"
                 alt={props.data[0]}
                 src={props.data[0]}
             />

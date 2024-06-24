@@ -8,13 +8,30 @@
   }
 }
 
-/* @font-face {
-  font-family: IranSans;
-  src: url('../fonts/iranSans/IRANSansX-Medium.woff');
-} */
-
 *{
   text-align: right;
   direction: rtl;
   font-family: 'IranSans';
+}
+
+html{
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #401F71;
+    border-radius: 99px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #401F71;
+  }
 }
