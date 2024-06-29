@@ -9,12 +9,14 @@ import { MdOutlineDesignServices } from 'react-icons/md';
 import { PiUsersThree } from 'react-icons/pi';
 import HumberMenu from './HumberMenu';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
     interface MenuType {
-        id: Number;
+        id: number;
         icon: React.ReactNode;
-        name: String;
+        name: string;
+        link: string;
     }
 
     const menus: MenuType[] = [
@@ -22,26 +24,31 @@ export default function Header() {
             id: 1,
             icon: <HiOutlineHome color="white" className="w-5 h-5" />,
             name: 'صفحه اصلی',
+            link: '/',
         },
         {
             id: 2,
             icon: <FaRegNewspaper color="white" className="w-5 h-5" />,
             name: 'اخبارنامه',
+            link: '/blog',
         },
         {
             id: 3,
             icon: <MdOutlineDesignServices color="white" className="w-5 h-5" />,
             name: 'خدمات',
+            link: '/service',
         },
         {
             id: 4,
             icon: <PiUsersThree color="white" className="w-5 h-5" />,
             name: 'درباره ما',
+            link: '/about',
         },
         {
             id: 5,
             icon: <AiOutlinePhone color="white" className="w-5 h-5" />,
             name: 'تماس با ما',
+            link: '/contact',
         },
     ];
 
@@ -80,7 +87,8 @@ export default function Header() {
                 <div className="hidden xl:flex items-center gap-5">
                     {menus.map((el) => {
                         return (
-                            <div
+                            <Link
+                                href={el.link}
                                 key={`menu-${el.id}`}
                                 className="flex items-center gap-1 cursor-pointer"
                             >
@@ -88,7 +96,7 @@ export default function Header() {
                                 <div className="text-white text-lg">
                                     {el.name}
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>

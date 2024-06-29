@@ -12,6 +12,7 @@
   text-align: right;
   direction: rtl;
   font-family: 'IranSans';
+  scroll-behavior: smooth;
 }
 
 html{

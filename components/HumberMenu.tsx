@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { ReactEventHandler, useState } from 'react';
 import { AiOutlinePhone } from 'react-icons/ai';

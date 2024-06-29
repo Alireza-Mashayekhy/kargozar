@@ -35,6 +35,8 @@ export default function Banner(props: any) {
                 className="rounded-3xl shadow-md w-full"
                 alt={props.data[0]}
                 src={props.data[0]}
+                width={1000}
+                height={1000}
             />
         );
     } else {

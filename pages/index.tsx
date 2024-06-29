@@ -1,3 +1,4 @@
+'use client';
 import Banner from '@/components/Banner';
 import BannerSection from '@/components/BannerSection';
 import BlogSection from '@/components/Blog/Section';
