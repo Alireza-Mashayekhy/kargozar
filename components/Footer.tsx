@@ -82,9 +82,11 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col gap-3 text-sm sm:text-bas">
                             <div className="text-left">gomrok@gmail.com</div>
-                            <div className="text-left">09999999999</div>
+                            <div className="text-left">09128938490</div>
                             <div className="sm:max-w-44 text-justify">
-                                لورم ایپسوم متن ساختگی با تولید سادگی
+                                خیـــابـــان آزادی، خیـــابـــان حبیب الله،
+                                خیابان قاسمی،جنب جهاد دانشگاهی شریف، مرکز نوآوری
+                                باکس
                             </div>
                         </div>
                     </div>

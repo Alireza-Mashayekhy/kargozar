@@ -105,11 +105,14 @@ export default function Header() {
                 <button className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary font-semibold">
                     ثبت سفارش
                 </button>
-                <button className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary">
-                    09999999999
+                <button
+                    className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary"
+                    style={{ direction: 'ltr' }}
+                >
+                    021_28427180
                 </button>
                 <button className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary">
-                    09999999999
+                    09128938490
                 </button>
             </div>
             <HumberMenu
