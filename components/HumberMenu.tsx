@@ -1,6 +1,8 @@
 'use client';
 import Image from 'next/image';
-import { ReactEventHandler, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { ReactEventHandler, useEffect, useState } from 'react';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { FaRegNewspaper } from 'react-icons/fa6';
 import { HiOutlineHome } from 'react-icons/hi';
@@ -17,10 +19,36 @@ export default function HumberMenu({
 }) {
     const [menuIndex, setMenuIndex] = useState<Number>(0);
 
+    const router = useRouter();
+
+    useEffect(() => {
+        if (router.pathname) {
+            if (router.pathname === '/') {
+                setMenuIndex(0);
+            } else if (
+                router.pathname === '/blog' ||
+                router.pathname === '/blog/[slug]' ||
+                router.pathname === '/blog/[slug]/[slugDetail]'
+            ) {
+                setMenuIndex(1);
+            } else if (
+                router.pathname === '/service' ||
+                router.pathname === '/service/[slug]'
+            ) {
+                setMenuIndex(2);
+            } else if (router.pathname === '/about') {
+                setMenuIndex(3);
+            } else if (router.pathname === '/contact') {
+                setMenuIndex(4);
+            }
+        }
+    }, [router.pathname]);
+
     interface MenuType {
         id: Number;
         icon: React.ReactNode;
-        name: String;
+        name: string;
+        link: string;
     }
 
     const menus: MenuType[] = [
@@ -33,6 +61,7 @@ export default function HumberMenu({
                 />
             ),
             name: 'صفحه اصلی',
+            link: '/',
         },
         {
             id: 2,
@@ -43,6 +72,7 @@ export default function HumberMenu({
                 />
             ),
             name: 'اخبارنامه',
+            link: '/blog',
         },
         {
             id: 3,
@@ -53,6 +83,7 @@ export default function HumberMenu({
                 />
             ),
             name: 'خدمات',
+            link: '/service',
         },
         {
             id: 4,
@@ -63,6 +94,7 @@ export default function HumberMenu({
                 />
             ),
             name: 'درباره ما',
+            link: '/about',
         },
         {
             id: 5,
@@ -73,6 +105,7 @@ export default function HumberMenu({
                 />
             ),
             name: 'تماس با ما',
+            link: '/contact',
         },
     ];
 
@@ -93,6 +126,8 @@ export default function HumberMenu({
                 <div className="flex flex-col justify-between items-center gap-2">
                     <Image
                         alt="KGLogo"
+                        title="KGLogo"
+                        loading="eager"
                         src={require('@/public/logo/KGLogo.png')}
                         className="w-14"
                     />
@@ -103,6 +138,8 @@ export default function HumberMenu({
                 <div className="flex flex-col justify-between items-center gap-2">
                     <Image
                         alt="logo"
+                        title="logo"
+                        loading="eager"
                         src={require('@/public/logo/logo.png')}
                         className="w-14"
                     />
@@ -112,7 +149,8 @@ export default function HumberMenu({
             <span className="h-1.5 w-full rounded-full bg-gradient-to-r from-primary-1 via-primary-2 to-primary-1" />
             {menus.map((el, index) => {
                 return (
-                    <div
+                    <Link
+                        href={el.link}
                         key={`menu-${el.id}`}
                         className={`flex items-center gap-3 cursor-pointer px-3 py-2 rounded-xl ${
                             menuIndex === index
@@ -122,7 +160,7 @@ export default function HumberMenu({
                     >
                         {el.icon}
                         <div className=" text-2xl font-bold">{el.name}</div>
-                    </div>
+                    </Link>
                 );
             })}
         </div>

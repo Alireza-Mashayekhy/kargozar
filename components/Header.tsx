@@ -68,8 +68,10 @@ export default function Header() {
                     <div className="flex items-center gap-2">
                         <Image
                             alt="KGLogo"
+                            title="KGLogo"
                             src={require('@/public/logo/KGLogo.png')}
                             className="w-5 md:w-7"
+                            loading="eager"
                         />
                         <div className="md:text-lg text-white">
                             کارگزار گمرک
@@ -78,6 +80,8 @@ export default function Header() {
                     <div className="flex items-center gap-2">
                         <Image
                             alt="logo"
+                            loading="eager"
+                            title="logo"
                             src={require('@/public/logo/logo.png')}
                             className="w-5 md:w-7"
                         />
@@ -102,9 +106,12 @@ export default function Header() {
                 </div>
             </div>
             <div className="hidden xl:flex items-center gap-2">
-                <button className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary font-semibold">
+                <Link
+                    href="/request"
+                    className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary font-semibold"
+                >
                     ثبت سفارش
-                </button>
+                </Link>
                 <button
                     className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary"
                     style={{ direction: 'ltr' }}

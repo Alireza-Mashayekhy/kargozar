@@ -2,6 +2,7 @@
 import Banner from '@/components/Banner';
 import Card from '@/components/Card';
 import Layout from '@/components/layout';
+import Head from 'next/head';
 
 export default function blog() {
     interface categoriesType {
@@ -29,9 +30,27 @@ export default function blog() {
     ];
     return (
         <Layout>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <meta charSet="utf-8" />
+                <title>اخبرنامه گمرکی</title>
+                <meta
+                    name="description"
+                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+                    محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
+                    کاالی عزیز را بر طرف سازد.  "
+                />
+                <link rel="canonical" href="https://kargozargomrok.com/blog" />
+            </Head>
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
-                    <Banner data={[require('@/public/blog/banner.jpg')]} />
+                    <Banner
+                        data={[require('@/public/blog/banner.jpg')]}
+                        mobileData={[require('@/public/blog/mobileBanner.jpg')]}
+                    />
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-16">
                         {categories.map((item) => {
                             return (

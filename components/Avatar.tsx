@@ -18,8 +18,11 @@ export default function Avatar(props: propsType) {
                     <Image
                         src={props.image}
                         alt={props.name}
-                        className=" rounded-full"
-                        fill
+                        title={props.name}
+                        className=" rounded-full w-full h-full"
+                        width={1000}
+                        height={1000}
+                        loading="eager"
                     />
                 </div>
             </div>

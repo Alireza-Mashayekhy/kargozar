@@ -9,6 +9,7 @@ export default function Footer() {
                 <div className="flex items-center gap-2">
                     <Image
                         alt="KGLogo"
+                        title="KGLogo"
                         src={require('@/public/logo/KGLogo.png')}
                         className="w-10 sm:w-14"
                     />
@@ -19,6 +20,7 @@ export default function Footer() {
                 <div className="flex items-center gap-2">
                     <Image
                         alt="logo"
+                        title="logo"
                         src={require('@/public/logo/logo.png')}
                         className="w-10 sm:w-14"
                     />
@@ -33,13 +35,12 @@ export default function Footer() {
                         درباره کارگزار گمرک
                     </div>
                     <p className="text-justify text-sm sm:text-base">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
-                        برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با
-                        هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت
-                        و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
-                        متخصصان را می طلبد، تا با نرم{' '}
+                        مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران
+                        مهندس محمدامین قنبری تشکیل شده است تا نیاز های شما
+                        بازرگان و صاحبین کاالی عزیز را در حوزه ترخیص کاالهای
+                        وارداتی و صادراتی در کوتاهترین زمان و با کمترین هزینه
+                        های گمرکی ممکن و مراجع اختالفات گمرکی و مشاوره در زمینه
+                        امور بازرگانی و گمرکی بر طرف سازد.
                     </p>
                 </div>
                 <div className="flex flex-col gap-5">
@@ -49,15 +50,17 @@ export default function Footer() {
                     <div className="flex flex-col gap-3  text-sm sm:text-bas">
                         <Link href="/about">درباره ما</Link>
                         <Link href="/contact">تماس با ما</Link>
-                        <Link href="/order">ثبت سفارش</Link>
+                        <Link href="/request">ثبت سفارش</Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-5">
                     <div className="font-bold text-xl sm:text-3xl">خدمات</div>
                     <div className="flex flex-col gap-3  text-sm sm:text-bas">
-                        <Link href="/">خدمات</Link>
-                        <Link href="/">خدمات</Link>
-                        <Link href="/">خدمات</Link>
+                        <Link href="/service/clearance">ترخیص کالا</Link>
+                        <Link href="/service/commission">
+                            کمیسیون اختلافات گمرک
+                        </Link>
+                        <Link href="/service/counseling">مشاوره بازرگانی</Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-5">
@@ -65,9 +68,9 @@ export default function Footer() {
                         مجله گمرکی
                     </div>
                     <div className="flex flex-col gap-3  text-sm sm:text-bas">
-                        <Link href="/">مجله </Link>
-                        <Link href="/">مجله </Link>
-                        <Link href="/">مجله </Link>
+                        <Link href="blog/circular_letters">بخشنامه گمرکی </Link>
+                        <Link href="blog/news_letters">خبرنامه گمرکی </Link>
+                        <Link href="blog/posts">مقالات گمرکی </Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-5 w-full sm:w-fit">

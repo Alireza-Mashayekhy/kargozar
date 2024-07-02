@@ -25,7 +25,8 @@ export default function BannerSection() {
                 </p>
             </div>
             <Image
-                alt="banner"
+                alt="bannerSection"
+                title="bannerSection"
                 src={require('@/public/global/banner.png')}
                 className="w-full lg:w-1/2"
             />

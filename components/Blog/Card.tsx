@@ -12,7 +12,7 @@ export default function BlogCard(props: any) {
                     className={`${style.skeleton} w-full aspect-video rounded-2xl`}
                 ></div>
                 <div className="flex flex-col gap-2.5 p-5">
-                    <h4
+                    <div
                         className={`${style.skeleton} w-full h-[20px] rounded-full`}
                     />
                     <div className="flex flex-col gap-1">
@@ -29,7 +29,7 @@ export default function BlogCard(props: any) {
                             className={`${style.skeleton} w-full h-[10px] rounded-full`}
                         />
                     </div>
-                    <h4
+                    <div
                         className={`${style.skeleton} w-full h-[20px] rounded-full`}
                     />
                 </div>
@@ -37,9 +37,10 @@ export default function BlogCard(props: any) {
         );
     }
     return (
-        <div className="bg-white rounded-2xl border transition-all border-[#00000020] hover:shadow-md">
+        <div className="bg-white rounded-2xl border transition-all border-[#00000020] hover:shadow-md h-full flex flex-col justify-between">
             <Image
                 alt={props.title}
+                title={props.title}
                 className="w-full rounded-2xl"
                 width={1000}
                 height={1000}
@@ -47,7 +48,7 @@ export default function BlogCard(props: any) {
             />
             <div className="flex flex-col gap-2.5 p-5">
                 <h4 className="font-bold text-xl sm:text-2xl">{props.title}</h4>
-                <p className="text-justify leading-snug text-sm sm:text-base">
+                <p className="text-justify leading-snug text-sm sm:text-base line-clamp-1">
                     {props.description}
                 </p>
                 <div className="flex justify-end">

@@ -11,10 +11,12 @@ import { IoMdSearch } from 'react-icons/io';
 import Link from 'next/link';
 import Pagination from '@/components/Pagination';
 import { useDebouncedCallback } from 'use-debounce';
+import Head from 'next/head';
 
 export default function Category() {
     const [blogData, setData] = useState<blogDataType[]>([]);
     const [isLoading, setLoading] = useState(true);
+    const [total, setTotal] = useState(0);
     const [isShowCategories, setCategories] = useState(false);
     const [searchedText, setSearchText] = useState('');
 
@@ -32,10 +34,11 @@ export default function Category() {
 
     interface blogDataType {
         content: string;
-        image: string;
+        images: Array<string>;
         slug: string;
         title: string;
         ulid: string;
+        upper_content: string;
     }
 
     useEffect(() => {
@@ -49,6 +52,7 @@ export default function Category() {
                 )
                 .then((res) => {
                     setData(res.data.data);
+                    setTotal(res.data.meta.total);
                     setLoading(false);
                 });
         }
@@ -57,10 +61,48 @@ export default function Category() {
     if (isLoading) {
         return (
             <Layout>
+                <Head>
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1"
+                    />
+                    <meta charSet="utf-8" />
+                    <title>
+                        اخبرنامه گمرکی -{' '}
+                        {router.query.slug === 'circular_letters'
+                            ? 'بخشنامه گمرکی'
+                            : router.query.slug === 'news_letters'
+                            ? 'خبرنامه گمرکی'
+                            : 'مقالات گمرکی'}
+                    </title>
+                    <meta
+                        name="description"
+                        content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+                    محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
+                    کاالی عزیز را بر طرف سازد.  "
+                    />
+                    <link
+                        rel="canonical"
+                        href={`https://kargozargomrok.com/blog/${router.query.slug}`}
+                    />
+                </Head>
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
-                    <div
-                        className={`${style.skeleton} w-full aspect-[3] rounded-3xl`}
-                    ></div>
+                    <Banner
+                        data={[
+                            router.query.slug === 'circular_letters'
+                                ? '/blog/bakhsnameBanner.jpg'
+                                : router.query.slug === 'news_letters'
+                                ? '/blog/khabarnameBanner.jpg'
+                                : '/blog/maghalatBanner.jpg',
+                        ]}
+                        mobileData={[
+                            router.query.slug === 'circular_letters'
+                                ? '/blog/bakhshnameMobileBanner.jpg'
+                                : router.query.slug === 'news_letters'
+                                ? '/blog/khabarnameMobileBanner.jpg'
+                                : '/blog/maghalatMobileBanner.jpg',
+                        ]}
+                    />
                     <div className="flex flex-wrap gap-5 justify-between items-center relative">
                         <div
                             onClick={() => setCategories(!isShowCategories)}
@@ -130,21 +172,61 @@ export default function Category() {
     }
     return (
         <Layout>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <meta charSet="utf-8" />
+                <title>
+                    اخبرنامه گمرکی -{' '}
+                    {router.query.slug === 'circular_letters'
+                        ? 'بخشنامه گمرکی'
+                        : router.query.slug === 'news_letters'
+                        ? 'خبرنامه گمرکی'
+                        : 'مقالات گمرکی'}
+                </title>
+                <meta
+                    name="description"
+                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+                    محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
+                    کاالی عزیز را بر طرف سازد.  "
+                />
+                <link
+                    rel="canonical"
+                    href={`https://kargozargomrok.com/blog/${router.query.slug}`}
+                />
+            </Head>
             <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
-                <Banner />
+                <Banner
+                    data={[
+                        router.query.slug === 'circular_letters'
+                            ? '/blog/bakhsnameBanner.jpg'
+                            : router.query.slug === 'news_letters'
+                            ? '/blog/khabarnameBanner.jpg'
+                            : '/blog/maghalatBanner.jpg',
+                    ]}
+                    mobileData={[
+                        router.query.slug === 'circular_letters'
+                            ? '/blog/bakhshnameMobileBanner.jpg'
+                            : router.query.slug === 'news_letters'
+                            ? '/blog/khabarnameMobileBanner.jpg'
+                            : '/blog/maghalatMobileBanner.jpg',
+                    ]}
+                />
                 <div className="flex flex-wrap gap-5 justify-between items-center relative">
                     <div
                         onClick={() => setCategories(!isShowCategories)}
                         className="relative cursor-pointer w-full lg:max-w-96 flex items-center justify-between border rounded-md p-3 z-20"
                     >
-                        <div>
+                        <h1>
                             دسته بندی:
                             {router.query.slug === 'circular_letters'
                                 ? 'بخشنامه گمرکی'
                                 : router.query.slug === 'news_letters'
                                 ? 'خبرنامه گمرکی'
                                 : 'مقالات گمرکی'}
-                        </div>
+                        </h1>
                         <FaChevronDown />
                     </div>
 
@@ -195,13 +277,13 @@ export default function Category() {
                         <BlogCard
                             key={el.ulid}
                             title={el.title}
-                            image={el.image}
+                            image={el.images[0]}
                             slug={`/blog/${router.query.slug}/${el.slug}`}
-                            description={el.content}
+                            description={el.upper_content}
                         />
                     ))}
                 </div>
-                <Pagination length={blogData.length / 12} />
+                <Pagination length={total / 12} />
             </div>
         </Layout>
     );

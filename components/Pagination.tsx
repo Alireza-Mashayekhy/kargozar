@@ -9,7 +9,8 @@ export default function Pagination(props: any) {
         <div className="flex items-center gap-5 w-full justify-center">
             <div
                 className={`flex items-center justify-center w-14 h-14 rounded-md bg-primary-1  ${
-                    router.query.page == Math.ceil(props.length)
+                    router.query.page == Math.ceil(props.length) ||
+                    Math.ceil(props.length) === 1
                         ? 'opacity-50 cursor-default'
                         : 'cursor-pointer'
                 }`}

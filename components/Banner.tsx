@@ -26,18 +26,34 @@ export default function Banner(props: any) {
             <Image
                 className="rounded-3xl shadow-md w-full"
                 alt="default"
+                title="default"
+                width={1000}
+                height={1000}
                 src={require('@/public/placeholders/image.png')}
             />
         );
     } else if (props.data.length === 1) {
         return (
-            <Image
-                className="rounded-3xl shadow-md w-full"
-                alt={props.data[0]}
-                src={props.data[0]}
-                width={1000}
-                height={1000}
-            />
+            <div className="w-full">
+                <Image
+                    className="rounded-3xl shadow-md w-full hidden sm:block"
+                    alt="Banner"
+                    src={props.data[0]}
+                    loading="eager"
+                    title="Banner"
+                    width={1000}
+                    height={1000}
+                />
+                <Image
+                    className="rounded-3xl shadow-md w-full sm:hidden"
+                    alt="Banner"
+                    src={props.mobileData[0]}
+                    loading="eager"
+                    title="Banner"
+                    width={1000}
+                    height={1000}
+                />
+            </div>
         );
     } else {
         return (
@@ -49,11 +65,36 @@ export default function Banner(props: any) {
             >
                 {props.data.map((img: string, index: Number) => {
                     return (
-                        <SwiperSlide key={`img-${index}`}>
+                        <SwiperSlide
+                            key={`img-${index}`}
+                            className="w-full hidden sm:block"
+                        >
                             <Image
-                                alt={img}
+                                alt={`Banner-${index}`}
                                 src={img}
-                                className="h-full rounded-xl sm:rounded-3xl"
+                                title={`Banner-${index}`}
+                                width={1000}
+                                height={1000}
+                                className="h-full rounded-xl sm:rounded-3xl w-full"
+                                loading="eager"
+                            />
+                        </SwiperSlide>
+                    );
+                })}
+                {props.mobileData.map((img: string, index: Number) => {
+                    return (
+                        <SwiperSlide
+                            key={`img-${index}`}
+                            className="w-full sm:hidden"
+                        >
+                            <Image
+                                alt={`Banner-${index}`}
+                                src={img}
+                                title={`Banner-${index}`}
+                                width={1000}
+                                height={1000}
+                                className="h-full rounded-xl sm:rounded-3xl w-full"
+                                loading="eager"
                             />
                         </SwiperSlide>
                     );

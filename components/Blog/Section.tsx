@@ -29,9 +29,10 @@ export default function BlogSection(props: any) {
 
     interface blogType {
         title: string;
-        image: string;
+        images: Array<string>;
         slug: string;
-        description: string;
+        upper_content: string;
+        type: string;
     }
 
     return (
@@ -41,7 +42,7 @@ export default function BlogSection(props: any) {
                     {props?.title}
                 </h3>
                 <Link
-                    href={props?.link || '/'}
+                    href="/blog"
                     className="bg-primary-1 px-4 py-1.5 sm:px-8 sm:py-3 text-white rounded-md sm:rounded-xl font-bold text-xs sm:text-base"
                 >
                     ورود به مجله
@@ -55,18 +56,35 @@ export default function BlogSection(props: any) {
                     spaceBetween={48}
                     slidesPerView={slidePerView}
                 >
-                    {props.data?.map((item: blogType, index: Number) => {
-                        return (
-                            <SwiperSlide key={`blog-${index}`}>
-                                <BlogCard
-                                    title={item.title}
-                                    image={item.image}
-                                    slug={item.slug}
-                                    description={item.description}
-                                />
-                            </SwiperSlide>
-                        );
-                    })}
+                    {props.loading &&
+                        [...new Array(15)].map(
+                            (item: blogType, index: Number) => {
+                                return (
+                                    <SwiperSlide
+                                        key={`blog-${index}`}
+                                        className=" !h-auto"
+                                    >
+                                        <BlogCard isSkeleton />
+                                    </SwiperSlide>
+                                );
+                            }
+                        )}
+                    {!props.loading &&
+                        props.data?.map((item: blogType, index: Number) => {
+                            return (
+                                <SwiperSlide
+                                    key={`blog-${index}`}
+                                    className=" !h-auto"
+                                >
+                                    <BlogCard
+                                        title={item?.title}
+                                        image={item?.images[0]}
+                                        slug={`/blog/${item?.type}s/${item?.slug}`}
+                                        description={item?.upper_content}
+                                    />
+                                </SwiperSlide>
+                            );
+                        })}
                     <div className="flex items-center absolute left-1/2 -translate-x-1/2 gap-2 mt-10">
                         {props.data?.map((item: any, index: number) => {
                             if (index < props.data.length - slidePerView + 1) {
