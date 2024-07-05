@@ -1,13 +1,16 @@
+'use client';
 import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
 import Faq from '@/components/Faq';
-
+import style from '@/assets/styles/skeleton.module.css';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function ServiceDetail() {
-    const router = useRouter();
+    const params = useParams();
+
+    const [loading, setLoading] = useState(true);
 
     const [serviceData, setServiceData] = useState({
         banner: '',
@@ -38,8 +41,8 @@ export default function ServiceDetail() {
     });
 
     useEffect(() => {
-        if (router.query.slug) {
-            if (router.query.slug === 'clearance') {
+        if (params.slug) {
+            if (params.slug === 'clearance') {
                 setServiceData({
                     banner: '/service/tarkhisBanner.jpg',
                     mobileBanner: '/service/tarkhisMobileBanner.jpg',
@@ -95,7 +98,7 @@ export default function ServiceDetail() {
                         },
                     ],
                 });
-            } else if (router.query.slug === 'commission') {
+            } else if (params.slug === 'commission') {
                 setServiceData({
                     banner: '/service/komisionBanner.jpg',
                     mobileBanner: '/service/komisionMobileBanner.jpg',
@@ -133,7 +136,7 @@ export default function ServiceDetail() {
                         },
                     ],
                 });
-            } else if (router.query.slug === 'counseling') {
+            } else if (params.slug === 'counseling') {
                 setServiceData({
                     banner: '/service/moshavereBanner.jpg',
                     mobileBanner: '/service/moshavereMobileBanner.jpg',
@@ -205,8 +208,9 @@ export default function ServiceDetail() {
                     ],
                 });
             }
+            setLoading(false);
         }
-    }, [router.query.slug]);
+    }, [params.slug]);
 
     const faqData = [
         {
@@ -228,6 +232,83 @@ export default function ServiceDetail() {
         },
     ];
 
+    if (loading) {
+        return (
+            <div>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <meta charSet="utf-8" />
+                <title>خدمات گمرکی - {serviceData.title}</title>
+                <meta
+                    name="description"
+                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+                    محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
+                    کاالی عزیز را بر طرف سازد.  "
+                />
+                <link
+                    rel="canonical"
+                    href={`https://kargozargomrok.com/service/${params.slug}`}
+                />
+                <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
+                    <div
+                        className={`${style.skeleton} w-full aspect-[3] !rounded-3xl`}
+                    ></div>
+                    <div
+                        className={`${style.skeleton} w-full aspect-[3] !rounded-3xl`}
+                    ></div>
+                    <div className="flex flex-col gap-3">
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />{' '}
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />{' '}
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />{' '}
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />{' '}
+                        <p
+                            className={`${style.skeleton} w-full h-[10px] rounded-full`}
+                        />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div>
             <meta
@@ -244,13 +325,15 @@ export default function ServiceDetail() {
             />
             <link
                 rel="canonical"
-                href={`https://kargozargomrok.com/service/${router.query.slug}`}
+                href={`https://kargozargomrok.com/service/${params.slug}`}
             />
             <div className="flex flex-col gap-10 sm:gap-16 px-2.5 md:px-10 py-28 md:py-44">
-                <Banner
-                    data={[serviceData.banner]}
-                    mobileData={[serviceData.mobileBanner]}
-                />
+                {serviceData.banner && (
+                    <Banner
+                        data={[serviceData.banner]}
+                        mobileData={[serviceData.mobileBanner]}
+                    />
+                )}
                 <div className="flex flex-col items-center gap-5 rounded-2xl shadow-md bg-secondary py-3 sm:py-5 px-5 sm:px-8">
                     <Avatar
                         image={serviceData.agent.image}

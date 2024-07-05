@@ -3,7 +3,6 @@ import Banner from '@/components/Banner';
 import BlogCard from '@/components/Blog/Card';
 
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import style from '@/assets/styles/skeleton.module.css';
 import { FaChevronDown } from 'react-icons/fa6';
@@ -11,6 +10,7 @@ import { IoMdSearch } from 'react-icons/io';
 import Link from 'next/link';
 import Pagination from '@/components/Pagination';
 import { useDebouncedCallback } from 'use-debounce';
+import { useParams } from 'next/navigation';
 
 export default function Category() {
     const [blogData, setData] = useState<blogDataType[]>([]);
@@ -19,7 +19,7 @@ export default function Category() {
     const [isShowCategories, setCategories] = useState(false);
     const [searchedText, setSearchText] = useState('');
 
-    const router = useRouter();
+    const params = useParams();
 
     const search = useDebouncedCallback((value) => {
         setLoading(true);
@@ -36,13 +36,13 @@ export default function Category() {
     }
 
     useEffect(() => {
-        if (router.query.slug) {
+        if (params.slug) {
             setLoading(true);
             axios
                 .get(
-                    `https://api.kargozargomrok.com/api/${
-                        router.query.slug
-                    }?page=${router.query.page || 1}&q=${searchedText}`
+                    `https://api.kargozargomrok.com/api/${params.slug}?page=${
+                        params.page || 1
+                    }&q=${searchedText}`
                 )
                 .then((res) => {
                     setData(res.data.data);
@@ -50,7 +50,7 @@ export default function Category() {
                     setLoading(false);
                 });
         }
-    }, [router.query.page, router.query.slug, searchedText]);
+    }, [params.page, params.slug, searchedText]);
 
     if (isLoading) {
         return (
@@ -62,9 +62,9 @@ export default function Category() {
                 <meta charSet="utf-8" />
                 <title>
                     اخبرنامه گمرکی -{' '}
-                    {router.query.slug === 'circular_letters'
+                    {params.slug === 'circular_letters'
                         ? 'بخشنامه گمرکی'
-                        : router.query.slug === 'news_letters'
+                        : params.slug === 'news_letters'
                         ? 'خبرنامه گمرکی'
                         : 'مقالات گمرکی'}
                 </title>
@@ -76,21 +76,21 @@ export default function Category() {
                 />
                 <link
                     rel="canonical"
-                    href={`https://kargozargomrok.com/blog/${router.query.slug}`}
+                    href={`https://kargozargomrok.com/blog/${params.slug}`}
                 />
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <Banner
                         data={[
-                            router.query.slug === 'circular_letters'
+                            params.slug === 'circular_letters'
                                 ? '/blog/bakhsnameBanner.jpg'
-                                : router.query.slug === 'news_letters'
+                                : params.slug === 'news_letters'
                                 ? '/blog/khabarnameBanner.jpg'
                                 : '/blog/maghalatBanner.jpg',
                         ]}
                         mobileData={[
-                            router.query.slug === 'circular_letters'
+                            params.slug === 'circular_letters'
                                 ? '/blog/bakhshnameMobileBanner.jpg'
-                                : router.query.slug === 'news_letters'
+                                : params.slug === 'news_letters'
                                 ? '/blog/khabarnameMobileBanner.jpg'
                                 : '/blog/maghalatMobileBanner.jpg',
                         ]}
@@ -102,9 +102,9 @@ export default function Category() {
                         >
                             <div>
                                 دسته بندی:
-                                {router.query.slug === 'circular_letters'
+                                {params.slug === 'circular_letters'
                                     ? 'بخشنامه گمرکی'
-                                    : router.query.slug === 'news_letters'
+                                    : params.slug === 'news_letters'
                                     ? 'خبرنامه گمرکی'
                                     : 'مقالات گمرکی'}
                             </div>
@@ -171,9 +171,9 @@ export default function Category() {
             <meta charSet="utf-8" />
             <title>
                 اخبرنامه گمرکی -{' '}
-                {router.query.slug === 'circular_letters'
+                {params.slug === 'circular_letters'
                     ? 'بخشنامه گمرکی'
-                    : router.query.slug === 'news_letters'
+                    : params.slug === 'news_letters'
                     ? 'خبرنامه گمرکی'
                     : 'مقالات گمرکی'}
             </title>
@@ -185,21 +185,21 @@ export default function Category() {
             />
             <link
                 rel="canonical"
-                href={`https://kargozargomrok.com/blog/${router.query.slug}`}
+                href={`https://kargozargomrok.com/blog/${params.slug}`}
             />
             <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={[
-                        router.query.slug === 'circular_letters'
+                        params.slug === 'circular_letters'
                             ? '/blog/bakhsnameBanner.jpg'
-                            : router.query.slug === 'news_letters'
+                            : params.slug === 'news_letters'
                             ? '/blog/khabarnameBanner.jpg'
                             : '/blog/maghalatBanner.jpg',
                     ]}
                     mobileData={[
-                        router.query.slug === 'circular_letters'
+                        params.slug === 'circular_letters'
                             ? '/blog/bakhshnameMobileBanner.jpg'
-                            : router.query.slug === 'news_letters'
+                            : params.slug === 'news_letters'
                             ? '/blog/khabarnameMobileBanner.jpg'
                             : '/blog/maghalatMobileBanner.jpg',
                     ]}
@@ -211,9 +211,9 @@ export default function Category() {
                     >
                         <h1>
                             دسته بندی:
-                            {router.query.slug === 'circular_letters'
+                            {params.slug === 'circular_letters'
                                 ? 'بخشنامه گمرکی'
-                                : router.query.slug === 'news_letters'
+                                : params.slug === 'news_letters'
                                 ? 'خبرنامه گمرکی'
                                 : 'مقالات گمرکی'}
                         </h1>
@@ -268,7 +268,7 @@ export default function Category() {
                             key={el.ulid}
                             title={el.title}
                             image={el.images[0]}
-                            slug={`/blog/${router.query.slug}/${el.slug}`}
+                            slug={`/blog/${params.slug}/${el.slug}`}
                             description={el.upper_content}
                         />
                     ))}

@@ -1,7 +1,6 @@
 'use client';
 
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import style from '@/assets/styles/skeleton.module.css';
 import Banner from '@/components/Banner';
@@ -10,6 +9,7 @@ import { FiDownload } from 'react-icons/fi';
 import Image from 'next/image';
 import Subscription from '@/components/Blog/Subscription';
 import BlogSection from '@/components/Blog/Section';
+import { useParams } from 'next/navigation';
 
 export default function BlogDetail() {
     const fileRef = useRef<any>();
@@ -54,21 +54,21 @@ export default function BlogDetail() {
         created_at: '',
     });
 
-    const router = useRouter();
+    const params = useParams();
 
     useEffect(() => {
-        if (router.query.slugDetail) {
+        if (params.slugDetail) {
             setLoading(true);
             axios
                 .get(
-                    `https://api.kargozargomrok.com/api/${router.query.slug}/${router.query.slugDetail}`
+                    `https://api.kargozargomrok.com/api/${params.slug}/${params.slugDetail}`
                 )
                 .then((res) => {
                     setData(res.data.data);
                     setLoading(false);
                 });
         }
-    }, [router.query.slug, router.query.slugDetail]);
+    }, [params.slug, params.slugDetail]);
 
     if (isLoading) {
         return (
@@ -147,7 +147,7 @@ export default function BlogDetail() {
             />
             <link
                 rel="canonical"
-                href={`https://kargozargomrok.com/blog/${router.query.slug}/${router.query.slugDetail}`}
+                href={`https://kargozargomrok.com/blog/${params.slug}/${params.slugDetail}`}
             />
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 pt-28 md:pt-44 mb-10">

@@ -1,3 +1,4 @@
+'use client';
 import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
 

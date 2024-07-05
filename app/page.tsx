@@ -98,7 +98,7 @@ export default function Home() {
                                         className="flex flex-col items-center gap-1.5 cursor-pointer"
                                     >
                                         <Image
-                                            alt={item.title}
+                                            alt={`landing-${item.title}`}
                                             title={item.title}
                                             src={item.image}
                                             loading="eager"
