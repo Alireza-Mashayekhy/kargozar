@@ -74,7 +74,7 @@ export default function Header() {
                 <div className="flex flex-row-reverse xl:flex-col gap-2.5">
                     <div className="flex items-center gap-2">
                         <Image
-                            alt="KGLogo"
+                            alt="Header KGLogo"
                             title="KGLogo"
                             src={require('@/public/logo/KGLogo.png')}
                             className="w-5 md:w-7"
@@ -86,7 +86,7 @@ export default function Header() {
                     </div>
                     <div className="flex items-center gap-2">
                         <Image
-                            alt="logo"
+                            alt="Header logo"
                             loading="eager"
                             title="logo"
                             src={require('@/public/logo/logo.png')}

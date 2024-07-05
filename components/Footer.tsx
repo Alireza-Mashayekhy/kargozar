@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="flex gap-10 sm:gap-24">
                 <div className="flex items-center gap-2">
                     <Image
-                        alt="KGLogo"
+                        alt="Footer KGLogo"
                         title="KGLogo"
                         src={require('@/public/logo/KGLogo.png')}
                         className="w-10 sm:w-14"
@@ -19,7 +19,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-2">
                     <Image
-                        alt="logo"
+                        alt="Footer logo"
                         title="logo"
                         src={require('@/public/logo/logo.png')}
                         className="w-10 sm:w-14"
@@ -79,17 +79,15 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-3 justify-between sm:justify-normal">
                         <div className="flex flex-col gap-3 text-sm sm:text-bas">
-                            <div className="whitespace-nowrap">ایمیل:</div>
                             <div className="whitespace-nowrap">شماره تماس:</div>
                             <div className="whitespace-nowrap">آدرس:</div>
                         </div>
                         <div className="flex flex-col gap-3 text-sm sm:text-bas">
-                            <div className="text-left">gomrok@gmail.com</div>
                             <div className="text-left">09128938490</div>
                             <div className="sm:max-w-44 text-justify">
                                 خیـــابـــان آزادی، خیـــابـــان حبیب الله،
-                                خیابان قاسمی،جنب جهاد دانشگاهی شریف، مرکز نوآوری
-                                باکس
+                                خیابان قاسمی، جنب جهاد دانشگاهی شریف، مرکز
+                                نوآوری باکس
                             </div>
                         </div>
                     </div>

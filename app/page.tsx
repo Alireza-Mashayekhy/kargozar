@@ -74,18 +74,30 @@ export default function Home() {
                 content="width=device-width, initial-scale=1"
             />
             <meta charSet="utf-8" />
-            <title>کارگزار گمرک</title>
+            <title>کارگزار رسمی گمرک - خانه</title>
             <meta
                 name="description"
                 content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
             />
+            <meta property="og:title" content="کارگزار رسمی گمرک" />
+            <meta property="og:type" content="image" />
+            <meta property="og:url" content="/logo/KGLogo.png" />
+            <meta
+                property="og:image"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+                    محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
+                    کاالی عزیز را بر طرف سازد."
+            />
+            <meta property="og:description" content="/logo/KGLogo.png" />
             <link rel="canonical" href="https://kargozargomrok.com" />
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-16 px-2.5 md:px-10 pt-28 md:pt-44">
                     <h1 className="hidden">
-                        مجموعه کارگزار گمرک با مدیریت مهندس محمدامین قنبری
+                        <b>
+                            مجموعه کارگزار گمرک با مدیریت مهندس محمدامین قنبری
+                        </b>
                     </h1>
                     <div>
                         <Banner data={banners} mobileData={mobileBanners} />

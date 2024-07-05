@@ -4,6 +4,8 @@ import { Toaster } from 'react-hot-toast';
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import Footer from '@/components/Footer';
+import { Person, WithContext } from 'schema-dts';
+import Script from 'next/script';
 
 export default function RootLayout({
     children,
@@ -12,10 +14,25 @@ export default function RootLayout({
     children: React.ReactNode;
     team: React.ReactNode;
 }) {
+    const jsonLd: WithContext<Person> = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Tehran',
+            addressRegion: 'Tehran',
+            streetAddress:
+                'خیـــابـــان آزادی، خیـــابـــان حبیب الله، خیابان قاسمی، جنب جهاد دانشگاهی شریف، مرکز نوآوری باکس',
+        },
+        image: '/about/user.jpg',
+        jobTitle: 'Official customs broker',
+        name: 'محمدامین قنبری',
+        telephone: '+98-9128938490',
+        url: 'https://kargozargomrok.com',
+    };
     return (
         <html lang="fa">
             <body>
-                {team}
                 <Toaster position="top-center" />
                 <Header />
                 <BottomNav />
@@ -39,6 +56,13 @@ export default function RootLayout({
                     name="theme-color"
                     media="(prefers-color-scheme: light)"
                     content="#401F71"
+                />
+                <Script
+                    id="person-schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(jsonLd),
+                    }}
                 />
             </head>
         </html>

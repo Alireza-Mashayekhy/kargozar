@@ -125,7 +125,7 @@ export default function HumberMenu({
             <div className="flex flex-row-reverse gap-2.5 justify-around">
                 <div className="flex flex-col justify-between items-center gap-2">
                     <Image
-                        alt="KGLogo"
+                        alt="Humber KGLogo"
                         title="KGLogo"
                         loading="eager"
                         src={require('@/public/logo/KGLogo.png')}
@@ -137,7 +137,7 @@ export default function HumberMenu({
                 </div>
                 <div className="flex flex-col justify-between items-center gap-2">
                     <Image
-                        alt="logo"
+                        alt="Humber logo"
                         title="logo"
                         loading="eager"
                         src={require('@/public/logo/logo.png')}

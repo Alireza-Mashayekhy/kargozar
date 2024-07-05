@@ -14,7 +14,7 @@ export default function Card(props: any) {
         >
             <Image
                 src={props.image}
-                alt={props.title}
+                alt={props.title + '-' + props.link}
                 title={props.title}
                 width={1000}
                 height={1000}

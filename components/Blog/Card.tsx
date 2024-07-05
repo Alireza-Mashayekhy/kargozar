@@ -39,7 +39,7 @@ export default function BlogCard(props: any) {
     return (
         <div className="bg-white rounded-2xl border transition-all border-[#00000020] hover:shadow-md h-full flex flex-col justify-between">
             <Image
-                alt={props.title}
+                alt={props.title + '-' + props.slug}
                 title={props.title}
                 className="w-full rounded-2xl aspect-video"
                 width={1000}
