@@ -8,6 +8,9 @@ const nextConfig = {
                 port: '',
             },
         ],
+        loader: 'custom',
+        loaderFile: './my/image/loader.js',
+        unoptimized: true,
     },
 };
 

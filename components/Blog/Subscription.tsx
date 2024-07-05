@@ -41,14 +41,14 @@ export default function Subscription() {
             <div className="flex flex-col md:flex-row gap-5 md:gap-10">
                 <input
                     value={full_name}
-                    onChange={(e) => setFullName(e.target.value)}
+                    onChange={(e: any) => setFullName(e.target.value)}
                     type="text"
                     className="border rounded-xl px-4 py-3 sm:px-7 sm:py-4 w-full focus:border-primary-1 text-sm sm:text-base"
                     placeholder="نام و نام خانوادگی"
                 />
                 <input
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e: any) => setEmail(e.target.value)}
                     type="text"
                     className="border rounded-xl px-4 py-3 sm:px-7 sm:py-4 w-full focus:border-primary-1 text-sm sm:text-base"
                     placeholder="ایمیل"

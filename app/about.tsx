@@ -1,8 +1,6 @@
 import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
 import Faq from '@/components/Faq';
-import Layout from '@/components/layout';
-import Head from 'next/head';
 
 export default function About() {
     // const faqData = [
@@ -43,25 +41,20 @@ export default function About() {
         },
     ];
     return (
-        <Layout>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <meta charSet="utf-8" />
-                <title>درباره کارگزار گمرک</title>
-                <meta
-                    name="description"
-                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+        <div>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <title>درباره کارگزار گمرک</title>
+            <meta
+                name="description"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                />
-                <link
-                    rel="canonical"
-                    href={`https://kargozargomrok.com/about`}
-                />
-            </Head>
+            />
+            <link rel="canonical" href={`https://kargozargomrok.com/about`} />
             <div className="flex flex-col gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={['/about/banner.png']}
@@ -117,6 +110,6 @@ export default function About() {
                 </div>
                 <Faq data={faqData} />
             </div>
-        </Layout>
+        </div>
     );
 }

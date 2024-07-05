@@ -1,8 +1,7 @@
 import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
 import Faq from '@/components/Faq';
-import Layout from '@/components/layout';
-import Head from 'next/head';
+
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -230,25 +229,23 @@ export default function ServiceDetail() {
     ];
 
     return (
-        <Layout>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <meta charSet="utf-8" />
-                <title>خدمات گمرکی - {serviceData.title}</title>
-                <meta
-                    name="description"
-                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+        <div>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <title>خدمات گمرکی - {serviceData.title}</title>
+            <meta
+                name="description"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                />
-                <link
-                    rel="canonical"
-                    href={`https://kargozargomrok.com/service/${router.query.slug}`}
-                />
-            </Head>
+            />
+            <link
+                rel="canonical"
+                href={`https://kargozargomrok.com/service/${router.query.slug}`}
+            />
             <div className="flex flex-col gap-10 sm:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={[serviceData.banner]}
@@ -331,6 +328,6 @@ export default function ServiceDetail() {
                 </div>
                 <Faq data={faqData} />
             </div>
-        </Layout>
+        </div>
     );
 }

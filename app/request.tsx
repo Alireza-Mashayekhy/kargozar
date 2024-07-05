@@ -1,7 +1,7 @@
+'use client';
 import Banner from '@/components/Banner';
-import Layout from '@/components/layout';
+
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import { FormEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaChevronDown } from 'react-icons/fa6';
@@ -25,14 +25,14 @@ export default function Request() {
     }
 
     useEffect(() => {
-        axios
-            .get(`https://api.kargozargomrok.com/api/service-types`)
-            .then((res) => {
-                setType(res.data.data);
-            });
+        if (typeof window !== 'undefined') {
+            axios
+                .get(`https://api.kargozargomrok.com/api/service-types`)
+                .then((res) => {
+                    setType(res.data.data);
+                });
+        }
     }, []);
-
-    const router = useRouter();
 
     const sendRequest = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -71,9 +71,12 @@ export default function Request() {
     };
 
     return (
-        <Layout>
+        <div>
             <div className="flex flex-col gap-16 px-2.5 md:px-10 py-28 md:py-44">
-                <Banner data={['/request.png']} />
+                <Banner
+                    data={['/request.png']}
+                    mobileData={['/mobileRequest.jpg']}
+                />
                 <form onSubmit={sendRequest} className="flex flex-col gap-8">
                     <h2 className="font-bold text-xl sm:text-3xl text-primary-1">
                         ثبت سفارش
@@ -84,7 +87,7 @@ export default function Request() {
                                 <label>نام و نام خانوادگی</label>
                                 <input
                                     value={full_name}
-                                    onChange={(e) =>
+                                    onChange={(e: any) =>
                                         setFullName(e.target.value)
                                     }
                                     type="text"
@@ -97,7 +100,9 @@ export default function Request() {
                                 <label>شماره تماس:</label>
                                 <input
                                     value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
+                                    onChange={(e: any) =>
+                                        setPhone(e.target.value)
+                                    }
                                     type="text"
                                     placeholder="لطفا وارد کنید"
                                     className="border rounded-xl px-4 py-3 sm:px-7 sm:py-4 w-full focus:border-primary-1 text-sm sm:text-base"
@@ -153,7 +158,9 @@ export default function Request() {
 
                             <textarea
                                 value={description}
-                                onChange={(e) => setDescription(e.target.value)}
+                                onChange={(e: any) =>
+                                    setDescription(e.target.value)
+                                }
                                 placeholder="لطفا توضیحات تکمیلی را وارد نمایید (اختیاری)"
                                 className="border rounded-xl p-3 sm:p-5 w-full h-full focus:border-primary-1 text-sm sm:text-base resize-none min-h-32"
                             />
@@ -187,6 +194,6 @@ export default function Request() {
                     </div>
                 </form>
             </div>
-        </Layout>
+        </div>
     );
 }

@@ -2,9 +2,9 @@
 import Banner from '@/components/Banner';
 import BannerSection from '@/components/BannerSection';
 import BlogSection from '@/components/Blog/Section';
-import Layout from '@/components/layout';
+
 import axios from 'axios';
-import Head from 'next/head';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -31,7 +31,17 @@ export default function Home() {
     }
     useEffect(() => {
         axios.get(`https://api.kargozargomrok.com/api/feed`).then((res) => {
-            setBlogs(res.data.data);
+            const myData: never[] = [];
+            res.data.data.circular_letters.map((el: never) => {
+                myData.push(el);
+            });
+            res.data.data.news_letters.map((el: never) => {
+                myData.push(el);
+            });
+            res.data.data.posts.map((el: never) => {
+                myData.push(el);
+            });
+            setBlogs(myData);
             setLoading(false);
         });
     }, []);
@@ -58,22 +68,20 @@ export default function Home() {
     ];
 
     return (
-        <Layout>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <meta charSet="utf-8" />
-                <title>کارگزار گمرک</title>
-                <meta
-                    name="description"
-                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+        <div>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <title>کارگزار گمرک</title>
+            <meta
+                name="description"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                />
-                <link rel="canonical" href="https://kargozargomrok.com" />
-            </Head>
+            />
+            <link rel="canonical" href="https://kargozargomrok.com" />
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-16 px-2.5 md:px-10 pt-28 md:pt-44">
                     <h1 className="hidden">
@@ -112,6 +120,6 @@ export default function Home() {
                     loading={loading}
                 />
             </div>
-        </Layout>
+        </div>
     );
 }

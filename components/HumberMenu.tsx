@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { ReactEventHandler, useEffect, useState } from 'react';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { FaRegNewspaper } from 'react-icons/fa6';
@@ -19,30 +19,30 @@ export default function HumberMenu({
 }) {
     const [menuIndex, setMenuIndex] = useState<Number>(0);
 
-    const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
-        if (router.pathname) {
-            if (router.pathname === '/') {
+        if (pathname) {
+            if (pathname === '/') {
                 setMenuIndex(0);
             } else if (
-                router.pathname === '/blog' ||
-                router.pathname === '/blog/[slug]' ||
-                router.pathname === '/blog/[slug]/[slugDetail]'
+                pathname === '/blog' ||
+                pathname === '/blog/[slug]' ||
+                pathname === '/blog/[slug]/[slugDetail]'
             ) {
                 setMenuIndex(1);
             } else if (
-                router.pathname === '/service' ||
-                router.pathname === '/service/[slug]'
+                pathname === '/service' ||
+                pathname === '/service/[slug]'
             ) {
                 setMenuIndex(2);
-            } else if (router.pathname === '/about') {
+            } else if (pathname === '/about') {
                 setMenuIndex(3);
-            } else if (router.pathname === '/contact') {
+            } else if (pathname === '/contact') {
                 setMenuIndex(4);
             }
         }
-    }, [router.pathname]);
+    }, [pathname]);
 
     interface MenuType {
         id: Number;
@@ -116,7 +116,7 @@ export default function HumberMenu({
             }`}
         >
             <IoClose
-                onClick={(e) => {
+                onClick={(e: any) => {
                     closeMenu(e);
                 }}
                 className="absolute left-4 top-4 w-8 h-8 cursor-pointer"

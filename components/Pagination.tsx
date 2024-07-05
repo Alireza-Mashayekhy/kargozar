@@ -9,7 +9,7 @@ export default function Pagination(props: any) {
         <div className="flex items-center gap-5 w-full justify-center">
             <div
                 className={`flex items-center justify-center w-14 h-14 rounded-md bg-primary-1  ${
-                    router.query.page == Math.ceil(props.length) ||
+                    router.query.page == Math.ceil(props.length).toString() ||
                     Math.ceil(props.length) === 1
                         ? 'opacity-50 cursor-default'
                         : 'cursor-pointer'
@@ -20,12 +20,12 @@ export default function Pagination(props: any) {
             {[...new Array(Math.ceil(props.length))].map((el, index) => (
                 <div
                     onClick={() => {
-                        router.query.page = index + 1;
+                        router.query.page = (index + 1).toString();
                         router.push(router);
                     }}
                     key={`pagination-${index}`}
                     className={`flex items-center justify-center w-14 h-14 rounded-md  cursor-pointer  ${
-                        router.query.page == index + 1
+                        router.query.page == (index + 1).toString()
                             ? 'bg-primary-1 text-white'
                             : ''
                     } ${
@@ -39,7 +39,7 @@ export default function Pagination(props: any) {
             ))}
             <div
                 className={`flex items-center justify-center w-14 h-14 rounded-md bg-primary-1  ${
-                    !router.query.page || router.query.page == 1
+                    !router.query.page || router.query.page == '1'
                         ? 'opacity-50 cursor-default'
                         : 'cursor-pointer'
                 }`}

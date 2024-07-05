@@ -1,8 +1,8 @@
 import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
-import Layout from '@/components/layout';
+
 import axios from 'axios';
-import Head from 'next/head';
+
 import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaTelegramPlane } from 'react-icons/fa';
@@ -58,25 +58,20 @@ export default function Contact() {
         }
     };
     return (
-        <Layout>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <meta charSet="utf-8" />
-                <title>تماس با کارگزار گمرک</title>
-                <meta
-                    name="description"
-                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+        <div>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <title>تماس با کارگزار گمرک</title>
+            <meta
+                name="description"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                />
-                <link
-                    rel="canonical"
-                    href={`https://kargozargomrok.com/contact`}
-                />
-            </Head>
+            />
+            <link rel="canonical" href={`https://kargozargomrok.com/contact`} />
             <div className="flex flex-col gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={['/contact/banner.png']}
@@ -177,19 +172,21 @@ export default function Contact() {
                                 className="border rounded-xl px-4 py-3 sm:px-7 sm:py-4 w-full focus:border-primary-1 text-sm sm:text-base"
                                 placeholder="نام و نام خانوادگی"
                                 value={full_name}
-                                onChange={(e) => setFullName(e.target.value)}
+                                onChange={(e: any) =>
+                                    setFullName(e.target.value)
+                                }
                             />
                             <input
                                 type="text"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e: any) => setEmail(e.target.value)}
                                 className="border rounded-xl px-4 py-3 sm:px-7 sm:py-4 w-full focus:border-primary-1 text-sm sm:text-base"
                                 placeholder="ایمیل"
                             />
                             <input
                                 type="text"
                                 value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
+                                onChange={(e: any) => setPhone(e.target.value)}
                                 inputMode="numeric"
                                 className="border rounded-xl px-4 py-3 sm:px-7 sm:py-4 w-full focus:border-primary-1 text-sm sm:text-base"
                                 placeholder="شماره تماس"
@@ -197,7 +194,9 @@ export default function Contact() {
                         </div>
                         <textarea
                             value={description}
-                            onChange={(e) => setDescription(e.target.value)}
+                            onChange={(e: any) =>
+                                setDescription(e.target.value)
+                            }
                             placeholder="توضیحات"
                             className="border rounded-xl p-3 sm:p-5 w-full md:w-1/2 focus:border-primary-1 text-sm sm:text-base resize-none min-h-32"
                         />
@@ -230,6 +229,6 @@ export default function Contact() {
                     </div>
                 </form>
             </div>
-        </Layout>
+        </div>
     );
 }

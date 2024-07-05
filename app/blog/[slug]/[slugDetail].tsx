@@ -1,5 +1,5 @@
 'use client';
-import Layout from '@/components/layout';
+
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
@@ -10,7 +10,6 @@ import { FiDownload } from 'react-icons/fi';
 import Image from 'next/image';
 import Subscription from '@/components/Blog/Subscription';
 import BlogSection from '@/components/Blog/Section';
-import Head from 'next/head';
 
 export default function BlogDetail() {
     const fileRef = useRef<any>();
@@ -73,7 +72,7 @@ export default function BlogDetail() {
 
     if (isLoading) {
         return (
-            <Layout>
+            <div>
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <div
                         className={`${style.skeleton} w-full aspect-[3] !rounded-3xl`}
@@ -128,30 +127,28 @@ export default function BlogDetail() {
                         />
                     </div>
                 </div>
-            </Layout>
+            </div>
         );
     }
 
     return (
-        <Layout>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <meta charSet="utf-8" />
-                <title>اخبرنامه گمرکی - {blogData.title}</title>
-                <meta
-                    name="description"
-                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+        <div>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <title>اخبرنامه گمرکی - {blogData.title}</title>
+            <meta
+                name="description"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                />
-                <link
-                    rel="canonical"
-                    href={`https://kargozargomrok.com/blog/${router.query.slug}/${router.query.slugDetail}`}
-                />
-            </Head>
+            />
+            <link
+                rel="canonical"
+                href={`https://kargozargomrok.com/blog/${router.query.slug}/${router.query.slugDetail}`}
+            />
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 pt-28 md:pt-44 mb-10">
                     <Banner
@@ -217,6 +214,6 @@ export default function BlogDetail() {
                     />
                 )}
             </div>
-        </Layout>
+        </div>
     );
 }

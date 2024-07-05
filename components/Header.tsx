@@ -8,8 +8,9 @@ import { IoMenu } from 'react-icons/io5';
 import { MdOutlineDesignServices } from 'react-icons/md';
 import { PiUsersThree } from 'react-icons/pi';
 import HumberMenu from './HumberMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
     interface MenuType {
@@ -18,6 +19,12 @@ export default function Header() {
         name: string;
         link: string;
     }
+
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [pathname]);
 
     const menus: MenuType[] = [
         {

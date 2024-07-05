@@ -50,7 +50,7 @@ export default function BlogSection(props: any) {
             </div>
             <div className="bg-primary-2 pt-7 sm:pt-16 pb-28">
                 <Swiper
-                    onSlideChange={(e) => setSliderIndex(e.activeIndex)}
+                    onSlideChange={(e: any) => setSliderIndex(e.activeIndex)}
                     ref={sliderRef}
                     className="w-full relative !px-2.5 sm:!px-10 !overflow-visible"
                     spaceBetween={48}

@@ -1,7 +1,7 @@
 'use client';
 import Banner from '@/components/Banner';
 import BlogCard from '@/components/Blog/Card';
-import Layout from '@/components/layout';
+
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,6 @@ import { IoMdSearch } from 'react-icons/io';
 import Link from 'next/link';
 import Pagination from '@/components/Pagination';
 import { useDebouncedCallback } from 'use-debounce';
-import Head from 'next/head';
 
 export default function Category() {
     const [blogData, setData] = useState<blogDataType[]>([]);
@@ -22,15 +21,10 @@ export default function Category() {
 
     const router = useRouter();
 
-    const search = useDebouncedCallback(
-        // function
-        (value) => {
-            setLoading(true);
-            setSearchText(value);
-        },
-        // delay in ms
-        1000
-    );
+    const search = useDebouncedCallback((value) => {
+        setLoading(true);
+        setSearchText(value);
+    }, 1000);
 
     interface blogDataType {
         content: string;
@@ -60,32 +54,30 @@ export default function Category() {
 
     if (isLoading) {
         return (
-            <Layout>
-                <Head>
-                    <meta
-                        name="viewport"
-                        content="width=device-width, initial-scale=1"
-                    />
-                    <meta charSet="utf-8" />
-                    <title>
-                        اخبرنامه گمرکی -{' '}
-                        {router.query.slug === 'circular_letters'
-                            ? 'بخشنامه گمرکی'
-                            : router.query.slug === 'news_letters'
-                            ? 'خبرنامه گمرکی'
-                            : 'مقالات گمرکی'}
-                    </title>
-                    <meta
-                        name="description"
-                        content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+            <div>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <meta charSet="utf-8" />
+                <title>
+                    اخبرنامه گمرکی -{' '}
+                    {router.query.slug === 'circular_letters'
+                        ? 'بخشنامه گمرکی'
+                        : router.query.slug === 'news_letters'
+                        ? 'خبرنامه گمرکی'
+                        : 'مقالات گمرکی'}
+                </title>
+                <meta
+                    name="description"
+                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                    />
-                    <link
-                        rel="canonical"
-                        href={`https://kargozargomrok.com/blog/${router.query.slug}`}
-                    />
-                </Head>
+                />
+                <link
+                    rel="canonical"
+                    href={`https://kargozargomrok.com/blog/${router.query.slug}`}
+                />
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <Banner
                         data={[
@@ -155,7 +147,7 @@ export default function Category() {
                             <input
                                 type="text"
                                 placeholder="جستجو"
-                                onInput={(e) => search(e.target.value)}
+                                onInput={(e: any) => search(e.target.value)}
                                 className="p-3 rounded-md outline-none w-full"
                             />
                             <IoMdSearch className="w-7 h-7 ml-3" />
@@ -167,36 +159,34 @@ export default function Category() {
                         ))}
                     </div>
                 </div>
-            </Layout>
+            </div>
         );
     }
     return (
-        <Layout>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <meta charSet="utf-8" />
-                <title>
-                    اخبرنامه گمرکی -{' '}
-                    {router.query.slug === 'circular_letters'
-                        ? 'بخشنامه گمرکی'
-                        : router.query.slug === 'news_letters'
-                        ? 'خبرنامه گمرکی'
-                        : 'مقالات گمرکی'}
-                </title>
-                <meta
-                    name="description"
-                    content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
+        <div>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <title>
+                اخبرنامه گمرکی -{' '}
+                {router.query.slug === 'circular_letters'
+                    ? 'بخشنامه گمرکی'
+                    : router.query.slug === 'news_letters'
+                    ? 'خبرنامه گمرکی'
+                    : 'مقالات گمرکی'}
+            </title>
+            <meta
+                name="description"
+                content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
                     کاالی عزیز را بر طرف سازد.  "
-                />
-                <link
-                    rel="canonical"
-                    href={`https://kargozargomrok.com/blog/${router.query.slug}`}
-                />
-            </Head>
+            />
+            <link
+                rel="canonical"
+                href={`https://kargozargomrok.com/blog/${router.query.slug}`}
+            />
             <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={[
@@ -266,7 +256,7 @@ export default function Category() {
                         <input
                             type="text"
                             placeholder="جستجو"
-                            onInput={(e) => search(e.target.value)}
+                            onInput={(e: any) => search(e.target.value)}
                             className="p-3 rounded-md outline-none w-full"
                         />
                         <IoMdSearch className="w-7 h-7 ml-3" />
@@ -285,6 +275,6 @@ export default function Category() {
                 </div>
                 <Pagination length={total / 12} />
             </div>
-        </Layout>
+        </div>
     );
 }

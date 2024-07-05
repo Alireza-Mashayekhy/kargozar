@@ -41,7 +41,7 @@ export default function BlogCard(props: any) {
             <Image
                 alt={props.title}
                 title={props.title}
-                className="w-full rounded-2xl"
+                className="w-full rounded-2xl aspect-video"
                 width={1000}
                 height={1000}
                 src={props.image || require('@/public/placeholders/image.png')}
