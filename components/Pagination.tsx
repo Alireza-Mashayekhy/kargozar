@@ -43,7 +43,7 @@ export default function Pagination(props: any) {
             ))}
             <div
                 className={`flex items-center justify-center w-14 h-14 rounded-md bg-primary-1  ${
-                    !router.page || router.page == '1'
+                    !params.page || params.page == '1'
                         ? 'opacity-50 cursor-default'
                         : 'cursor-pointer'
                 }`}
