@@ -13,11 +13,11 @@ export default function Home() {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const banners = ['/landing/banner_1.jpg', '/landing/banner_2.jpg'];
+    const banners = ['/landing/banner_1.webp', '/landing/banner_2.webp'];
 
     const mobileBanners = [
-        '/landing/mobileBanner_1.jpg',
-        '/landing/mobileBanner_2.jpg',
+        '/landing/mobileBanner_1.webp',
+        '/landing/mobileBanner_2.webp',
     ];
 
     interface servicesCategoriesType {
