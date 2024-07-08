@@ -370,8 +370,8 @@ export default function ServiceDetail() {
                     </p>
                     <Image
                         src={serviceData.imageAndTest.image}
-                        width={1000}
-                        height={1000}
+                        width={500}
+                        height={500}
                         alt="inner image"
                         title="inner image"
                         className="rounded-3xl"

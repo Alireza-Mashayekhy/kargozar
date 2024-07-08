@@ -42,8 +42,8 @@ export default function BlogCard(props: any) {
                 alt={props.title + '-' + props.slug}
                 title={props.title}
                 className="w-full rounded-2xl aspect-video"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 src={props.image || '/placeholders/image.png'}
             />
             <div className="flex flex-col gap-2.5 p-5">

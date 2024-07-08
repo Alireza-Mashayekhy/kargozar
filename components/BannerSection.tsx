@@ -34,8 +34,9 @@ export default function BannerSection() {
                 title="bannerSection"
                 src="/global/banner.png"
                 className="w-full lg:w-1/2"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
+                priority
             />
         </div>
     );

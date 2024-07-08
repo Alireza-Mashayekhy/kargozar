@@ -20,8 +20,8 @@ export default function Avatar(props: propsType) {
                         alt={props.name}
                         title={props.name}
                         className=" rounded-full w-full h-full"
-                        width={1000}
-                        height={1000}
+                        width={500}
+                        height={500}
                         loading="eager"
                     />
                 </div>

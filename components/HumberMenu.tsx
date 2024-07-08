@@ -130,8 +130,8 @@ export default function HumberMenu({
                         loading="eager"
                         src="/logo/KGLogo.png"
                         className="w-14"
-                        width={1000}
-                        height={1000}
+                        width={500}
+                        height={500}
                     />
                     <div className="text-2xl text-white font-bold">
                         کارگزار گمرک
@@ -143,8 +143,8 @@ export default function HumberMenu({
                         title="logo"
                         loading="eager"
                         src="/logo/logo.png"
-                        width={1000}
-                        height={1000}
+                        width={500}
+                        height={500}
                         className="w-14"
                     />
                     <div className="text-2xl text-white font-bold">گمرک</div>

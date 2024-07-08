@@ -16,8 +16,8 @@ export default function Card(props: any) {
                 src={props.image}
                 alt={props.title + '-' + props.link}
                 title={props.title}
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 className="w-full rounded-3xl shadow-md relative z-10"
                 loading="eager"
             />

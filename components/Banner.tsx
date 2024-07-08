@@ -36,8 +36,9 @@ export default function Banner(props: any) {
                 className="rounded-3xl shadow-md w-full"
                 alt="default"
                 title="default"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
+                priority
                 src="/placeholders/image.png"
             />
         );
@@ -48,19 +49,21 @@ export default function Banner(props: any) {
                     className="rounded-3xl shadow-md w-full hidden sm:block"
                     alt="Banner"
                     src={props.data[0]}
+                    priority
                     loading="eager"
                     title="Banner"
-                    width={1000}
-                    height={1000}
+                    width={500}
+                    height={500}
                 />
                 <Image
                     className="rounded-3xl shadow-md w-full sm:hidden"
                     alt="Banner"
                     src={props.mobileData[0]}
+                    priority
                     loading="eager"
                     title="Banner"
-                    width={1000}
-                    height={1000}
+                    width={500}
+                    height={500}
                 />
             </div>
         );
@@ -83,10 +86,11 @@ export default function Banner(props: any) {
                                     alt={`Banner-${index}`}
                                     src={img}
                                     title={`Banner-${index}`}
-                                    width={1000}
-                                    height={1000}
+                                    width={500}
+                                    height={500}
                                     className="h-full rounded-xl sm:rounded-3xl w-full"
                                     loading="eager"
+                                    priority
                                 />
                             </SwiperSlide>
                         );
@@ -149,8 +153,9 @@ export default function Banner(props: any) {
                                     alt={`Banner-${index}`}
                                     src={img}
                                     title={`Banner-${index}`}
-                                    width={1000}
-                                    height={1000}
+                                    priority
+                                    width={500}
+                                    height={500}
                                     className="h-full rounded-xl sm:rounded-3xl w-full"
                                     loading="eager"
                                 />

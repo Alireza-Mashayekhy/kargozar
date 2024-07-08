@@ -199,8 +199,8 @@ export default function BlogDetail() {
                         alt="blog image"
                         title="blog image"
                         src={blogData.middle_image}
-                        width={1000}
-                        height={1000}
+                        width={500}
+                        height={500}
                     />
                     <p className="text-justify text-sm sm:text-lg">
                         {blogData.lower_content}
