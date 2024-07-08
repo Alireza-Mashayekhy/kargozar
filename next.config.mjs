@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
+import OptimizeCssAssetsWebpackPlugin from 'optimize-css-assets-webpack-plugin';
 const nextConfig = {
+    transpilePackages: ['swiper', 'dom7'],
+    webpack(config) {
+        config.plugins.push(new OptimizeCssAssetsWebpackPlugin());
+        return config;
+    },
     images: {
         remotePatterns: [
             {
