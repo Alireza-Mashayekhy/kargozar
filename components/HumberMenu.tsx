@@ -128,7 +128,7 @@ export default function HumberMenu({
                         alt="Humber KGLogo"
                         title="KGLogo"
                         loading="eager"
-                        src={require('@/public/logo/KGLogo.png')}
+                        src="/logo/KGLogo.png"
                         className="w-14"
                     />
                     <div className="text-2xl text-white font-bold">
@@ -140,7 +140,7 @@ export default function HumberMenu({
                         alt="Humber logo"
                         title="logo"
                         loading="eager"
-                        src={require('@/public/logo/logo.png')}
+                        src="/logo/logo.png"
                         className="w-14"
                     />
                     <div className="text-2xl text-white font-bold">گمرک</div>

@@ -76,9 +76,11 @@ export default function Header() {
                         <Image
                             alt="Header KGLogo"
                             title="KGLogo"
-                            src={require('@/public/logo/KGLogo.png')}
+                            src="/logo/KGLogo.png"
                             className="w-5 md:w-7"
                             loading="eager"
+                            width={100}
+                            height={100}
                         />
                         <div className="md:text-lg text-white">
                             کارگزار گمرک
@@ -89,7 +91,7 @@ export default function Header() {
                             alt="Header logo"
                             loading="eager"
                             title="logo"
-                            src={require('@/public/logo/logo.png')}
+                            src="/logo/logo.png"
                             className="w-5 md:w-7"
                         />
                         <div className="md:text-lg text-white">گمرک</div>

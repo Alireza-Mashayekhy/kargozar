@@ -11,6 +11,12 @@ const nextConfig = {
         loader: 'custom',
         loaderFile: './my/image/loader.js',
         unoptimized: true,
+        headers: [
+            {
+                key: 'Cache-Control',
+                value: 'public, max-age=9999999999, must-revalidate',
+            },
+        ],
     },
 };
 

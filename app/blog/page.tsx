@@ -11,17 +11,17 @@ export default function blog() {
 
     const categories: categoriesType[] = [
         {
-            image: require('@/public/blog/bakhshname.png'),
+            image: '/blog/bakhshname.png',
             title: 'بخشنامه گمرکی',
             link: 'blog/circular_letters',
         },
         {
-            image: require('@/public/blog/khabarname.png'),
+            image: '/blog/khabarname.png',
             title: 'خبرنامه گمرکی',
             link: 'blog/news_letters',
         },
         {
-            image: require('@/public/blog/maghalat.png'),
+            image: '/blog/maghalat.png',
             title: 'مقالات گمرکی',
             link: 'blog/posts',
         },
@@ -44,8 +44,8 @@ export default function blog() {
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <Banner
-                        data={[require('@/public/blog/banner.jpg')]}
-                        mobileData={[require('@/public/blog/mobileBanner.jpg')]}
+                        data="/blog/banner.jpg"
+                        mobileData="/blog/mobileBanner.jpg"
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-16">
                         {categories.map((item) => {

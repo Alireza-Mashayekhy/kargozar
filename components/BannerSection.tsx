@@ -32,7 +32,7 @@ export default function BannerSection() {
             <Image
                 alt="bannerSection"
                 title="bannerSection"
-                src={require('@/public/global/banner.png')}
+                src="/global/banner.png"
                 className="w-full lg:w-1/2"
             />
         </div>

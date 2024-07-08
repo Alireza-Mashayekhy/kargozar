@@ -44,7 +44,7 @@ export default function BlogCard(props: any) {
                 className="w-full rounded-2xl aspect-video"
                 width={1000}
                 height={1000}
-                src={props.image || require('@/public/placeholders/image.png')}
+                src={props.image || '/placeholders/image.png'}
             />
             <div className="flex flex-col gap-2.5 p-5">
                 <h4 className="font-bold text-xl sm:text-2xl">{props.title}</h4>

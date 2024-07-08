@@ -38,7 +38,7 @@ export default function Banner(props: any) {
                 title="default"
                 width={1000}
                 height={1000}
-                src={require('@/public/placeholders/image.png')}
+                src="/placeholders/image.png"
             />
         );
     } else if (props.data.length === 1) {

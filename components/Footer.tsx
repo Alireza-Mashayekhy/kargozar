@@ -10,7 +10,7 @@ export default function Footer() {
                     <Image
                         alt="Footer KGLogo"
                         title="KGLogo"
-                        src={require('@/public/logo/KGLogo.png')}
+                        src="/logo/KGLogo.png"
                         className="w-10 sm:w-14"
                     />
                     <div className="text-lg sm:text-2xl text-white font-bold">
@@ -21,7 +21,7 @@ export default function Footer() {
                     <Image
                         alt="Footer logo"
                         title="logo"
-                        src={require('@/public/logo/logo.png')}
+                        src="/logo/logo.png"
                         className="w-10 sm:w-14"
                     />
                     <div className="text-lg sm:text-2xl text-white font-bold">

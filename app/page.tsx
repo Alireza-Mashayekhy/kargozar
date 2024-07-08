@@ -13,14 +13,11 @@ export default function Home() {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const banners = [
-        require('@/public/landing/banner_1.jpg'),
-        require('@/public/landing/banner_2.jpg'),
-    ];
+    const banners = ['/landing/banner_1.jpg', '/landing/banner_2.jpg'];
 
     const mobileBanners = [
-        require('@/public/landing/mobileBanner_1.jpg'),
-        require('@/public/landing/mobileBanner_2.jpg'),
+        '/landing/mobileBanner_1.jpg',
+        '/landing/mobileBanner_2.jpg',
     ];
 
     interface servicesCategoriesType {
@@ -49,19 +46,19 @@ export default function Home() {
     const servicesCategories: servicesCategoriesType[] = [
         {
             id: 1,
-            image: require('@/public/landing/tarkhisService.png'),
+            image: '/landing/tarkhisService.png',
             title: 'ترخیص کالا',
             link: '/service/clearance',
         },
         {
             id: 2,
-            image: require('@/public/landing/komesionService.png'),
+            image: '/landing/komesionService.png',
             title: 'کمیسیون اختلافات گمرک',
             link: '/service/commission',
         },
         {
             id: 3,
-            image: require('@/public/landing/moshavereService.png'),
+            image: '/landing/moshavereService.png',
             title: 'مشاوره بازرگانی',
             link: '/service/counseling',
         },
