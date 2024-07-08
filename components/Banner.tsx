@@ -50,7 +50,6 @@ export default function Banner(props: any) {
                     alt="Banner"
                     src={props.data[0]}
                     priority
-                    loading="eager"
                     title="Banner"
                     width={500}
                     height={500}
@@ -60,7 +59,6 @@ export default function Banner(props: any) {
                     alt="Banner"
                     src={props.mobileData[0]}
                     priority
-                    loading="eager"
                     title="Banner"
                     width={500}
                     height={500}
@@ -89,7 +87,6 @@ export default function Banner(props: any) {
                                     width={500}
                                     height={500}
                                     className="h-full rounded-xl sm:rounded-3xl w-full"
-                                    loading="eager"
                                     priority
                                 />
                             </SwiperSlide>
@@ -157,7 +154,6 @@ export default function Banner(props: any) {
                                     width={500}
                                     height={500}
                                     className="h-full rounded-xl sm:rounded-3xl w-full"
-                                    loading="eager"
                                 />
                             </SwiperSlide>
                         );

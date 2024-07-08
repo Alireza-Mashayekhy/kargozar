@@ -78,7 +78,6 @@ export default function Header() {
                             title="KGLogo"
                             src="/logo/KGLogo.png"
                             className="w-5 md:w-7"
-                            loading="eager"
                             width={100}
                             height={100}
                         />
@@ -89,7 +88,6 @@ export default function Header() {
                     <div className="flex items-center gap-2">
                         <Image
                             alt="Header logo"
-                            loading="eager"
                             title="logo"
                             src="/logo/logo.png"
                             className="w-5 md:w-7"

@@ -110,7 +110,6 @@ export default function Home() {
                                             alt={`landing-${item.title}`}
                                             title={item.title}
                                             src={item.image}
-                                            loading="eager"
                                             className="w-10 sm:w-16"
                                             width={500}
                                             height={500}

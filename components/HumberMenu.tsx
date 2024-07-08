@@ -127,7 +127,6 @@ export default function HumberMenu({
                     <Image
                         alt="Humber KGLogo"
                         title="KGLogo"
-                        loading="eager"
                         src="/logo/KGLogo.png"
                         className="w-14"
                         width={500}
@@ -141,7 +140,6 @@ export default function HumberMenu({
                     <Image
                         alt="Humber logo"
                         title="logo"
-                        loading="eager"
                         src="/logo/logo.png"
                         width={500}
                         height={500}

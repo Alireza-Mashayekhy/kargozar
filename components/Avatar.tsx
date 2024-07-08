@@ -22,7 +22,6 @@ export default function Avatar(props: propsType) {
                         className=" rounded-full w-full h-full"
                         width={500}
                         height={500}
-                        loading="eager"
                     />
                 </div>
             </div>

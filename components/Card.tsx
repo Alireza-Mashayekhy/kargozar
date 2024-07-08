@@ -19,7 +19,6 @@ export default function Card(props: any) {
                 width={500}
                 height={500}
                 className="w-full rounded-3xl shadow-md relative z-10"
-                loading="eager"
             />
             <h3
                 className={`w-11/12 rounded-2xl shadow-md bg-primary-2 py-5 flex justify-center transition-all sm:absolute ${
