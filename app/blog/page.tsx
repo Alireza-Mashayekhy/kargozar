@@ -38,7 +38,7 @@ export default function blog() {
                 name="description"
                 content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
                     محمدامین قنبری تشکیل شده است تا نیاز های شما بازرگان وصاحب
-                    کاالی عزیز را بر طرف سازد.  "
+                    کالای عزیز را بر طرف سازد.  "
             />
             <link rel="canonical" href="https://kargozargomrok.com/blog" />
             <div className="flex flex-col gap-10 md:gap-16">

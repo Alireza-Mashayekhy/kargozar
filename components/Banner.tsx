@@ -8,17 +8,26 @@ import { useCallback, useRef, useState } from 'react';
 
 export default function Banner(props: any) {
     const sliderRef = useRef<any>(null);
+    const sliderRef2 = useRef<any>(null);
 
     const [sliderIndex, setSliderIndex] = useState(0);
 
     const handlePrev = useCallback(() => {
-        if (!sliderRef.current) return;
-        sliderRef.current.swiper.slidePrev();
+        if (sliderRef.current) {
+            sliderRef.current.swiper.slidePrev();
+        }
+        if (sliderRef2.current) {
+            sliderRef2.current.swiper.slidePrev();
+        }
     }, []);
 
     const handleNext = useCallback(() => {
-        if (!sliderRef.current) return;
-        sliderRef.current.swiper.slideNext();
+        if (sliderRef.current) {
+            sliderRef.current.swiper.slideNext();
+        }
+        if (sliderRef2.current) {
+            sliderRef2.current.swiper.slideNext();
+        }
     }, []);
 
     if (!props.data?.length) {
@@ -126,7 +135,7 @@ export default function Banner(props: any) {
                 </Swiper>
                 <Swiper
                     onSlideChange={(e: any) => setSliderIndex(e.activeIndex)}
-                    ref={sliderRef}
+                    ref={sliderRef2}
                     className="w-full relative sm:!hidden"
                     spaceBetween={50}
                 >
@@ -183,7 +192,9 @@ export default function Banner(props: any) {
                                             : 'bg-secondary w-1.5 sm:w-2.5'
                                     }`}
                                     onClick={() => {
-                                        sliderRef.current.swiper.slideTo(index);
+                                        sliderRef2.current.swiper.slideTo(
+                                            index
+                                        );
                                     }}
                                 />
                             );
