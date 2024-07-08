@@ -38,6 +38,13 @@ export default function RootLayout({
                 <BottomNav />
                 {children}
                 <Footer />
+                <Script
+                    id="person-schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(jsonLd),
+                    }}
+                />
             </body>
             <head>
                 <link
@@ -56,13 +63,6 @@ export default function RootLayout({
                     name="theme-color"
                     media="(prefers-color-scheme: light)"
                     content="#401F71"
-                />
-                <Script
-                    id="person-schema"
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(jsonLd),
-                    }}
                 />
             </head>
         </html>
