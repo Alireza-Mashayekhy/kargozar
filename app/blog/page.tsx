@@ -44,7 +44,7 @@ export default function blog() {
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <Banner
-                        data="/blog/banner.jpg"
+                        data={['/blog/banner.jpg']}
                         mobileData="/blog/mobileBanner.jpg"
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-16">
