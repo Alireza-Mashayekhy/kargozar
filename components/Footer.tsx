@@ -12,6 +12,8 @@ export default function Footer() {
                         title="KGLogo"
                         src="/logo/KGLogo.png"
                         className="w-10 sm:w-14"
+                        width={1000}
+                        height={1000}
                     />
                     <div className="text-lg sm:text-2xl text-white font-bold">
                         کارگزار گمرک
@@ -22,6 +24,8 @@ export default function Footer() {
                         alt="Footer logo"
                         title="logo"
                         src="/logo/logo.png"
+                        width={1000}
+                        height={1000}
                         className="w-10 sm:w-14"
                     />
                     <div className="text-lg sm:text-2xl text-white font-bold">

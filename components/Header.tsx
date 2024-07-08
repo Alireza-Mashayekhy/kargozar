@@ -93,6 +93,8 @@ export default function Header() {
                             title="logo"
                             src="/logo/logo.png"
                             className="w-5 md:w-7"
+                            width={1000}
+                            height={1000}
                         />
                         <div className="md:text-lg text-white">گمرک</div>
                     </div>

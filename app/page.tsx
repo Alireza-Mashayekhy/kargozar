@@ -112,6 +112,8 @@ export default function Home() {
                                             src={item.image}
                                             loading="eager"
                                             className="w-10 sm:w-16"
+                                            width={1000}
+                                            height={1000}
                                         />
                                         <div className="text-sm sm:text-xl text-center">
                                             {item.title}
