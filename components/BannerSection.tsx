@@ -32,7 +32,7 @@ export default function BannerSection() {
             <Image
                 alt="bannerSection"
                 title="bannerSection"
-                src="/global/banner.png"
+                src="/global/banner.webp"
                 className="w-full lg:w-1/2"
                 width={500}
                 height={500}
