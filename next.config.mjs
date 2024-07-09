@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     transpilePackages: ['swiper', 'dom7'],
+
     images: {
         remotePatterns: [
             {
@@ -13,6 +14,16 @@ const nextConfig = {
         loaderFile: './my/image/loader.js',
         unoptimized: true,
     },
+
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.resolve.alias['@heroicons/react/outline'] =
+                '@heroicons/react/solid';
+        }
+
+        return config;
+    },
+
     async headers() {
         return [
             {
