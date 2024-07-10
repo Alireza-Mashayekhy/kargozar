@@ -13,12 +13,12 @@ export default function blog() {
         {
             image: '/blog/bakhshname.png',
             title: 'بخشنامه گمرکی',
-            link: 'blog/circular_letters',
+            link: 'blog/circular-letters',
         },
         {
             image: '/blog/khabarname.png',
             title: 'خبرنامه گمرکی',
-            link: 'blog/news_letters',
+            link: 'blog/news-letters',
         },
         {
             image: '/blog/maghalat.png',

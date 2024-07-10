@@ -62,9 +62,9 @@ export default function Category() {
                 <meta charSet="utf-8" />
                 <title>
                     اخبرنامه گمرکی -{' '}
-                    {params.slug === 'circular_letters'
+                    {params.slug === 'circular-letters'
                         ? 'بخشنامه گمرکی'
-                        : params.slug === 'news_letters'
+                        : params.slug === 'news-letters'
                         ? 'خبرنامه گمرکی'
                         : 'مقالات گمرکی'}
                 </title>
@@ -81,16 +81,16 @@ export default function Category() {
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <Banner
                         data={[
-                            params.slug === 'circular_letters'
+                            params.slug === 'circular-letters'
                                 ? '/blog/bakhsnameBanner.jpg'
-                                : params.slug === 'news_letters'
+                                : params.slug === 'news-letters'
                                 ? '/blog/khabarnameBanner.jpg'
                                 : '/blog/maghalatBanner.jpg',
                         ]}
                         mobileData={[
-                            params.slug === 'circular_letters'
+                            params.slug === 'circular-letters'
                                 ? '/blog/bakhshnameMobileBanner.jpg'
-                                : params.slug === 'news_letters'
+                                : params.slug === 'news-letters'
                                 ? '/blog/khabarnameMobileBanner.jpg'
                                 : '/blog/maghalatMobileBanner.jpg',
                         ]}
@@ -102,9 +102,9 @@ export default function Category() {
                         >
                             <div>
                                 دسته بندی:
-                                {params.slug === 'circular_letters'
+                                {params.slug === 'circular-letters'
                                     ? 'بخشنامه گمرکی'
-                                    : params.slug === 'news_letters'
+                                    : params.slug === 'news-letters'
                                     ? 'خبرنامه گمرکی'
                                     : 'مقالات گمرکی'}
                             </div>
@@ -115,13 +115,13 @@ export default function Category() {
                             <div className="absolute right-0 top-14 bg-white shadow rounded-2xl flex flex-col gap-2 w-96 overflow-hidden z-20">
                                 <Link
                                     className="p-2 hover:bg-secondary"
-                                    href="/blog/circular_letters"
+                                    href="/blog/circular-letters"
                                 >
                                     بخشنامه گمرکی
                                 </Link>
                                 <Link
                                     className="p-2 hover:bg-secondary"
-                                    href="/blog/news_letters"
+                                    href="/blog/news-letters"
                                 >
                                     خبرنامه گمرکی
                                 </Link>
@@ -171,9 +171,9 @@ export default function Category() {
             <meta charSet="utf-8" />
             <title>
                 اخبرنامه گمرکی -{' '}
-                {params.slug === 'circular_letters'
+                {params.slug === 'circular-letters'
                     ? 'بخشنامه گمرکی'
-                    : params.slug === 'news_letters'
+                    : params.slug === 'news-letters'
                     ? 'خبرنامه گمرکی'
                     : 'مقالات گمرکی'}
             </title>
@@ -192,14 +192,14 @@ export default function Category() {
                     data={[
                         params.slug === 'circular_letters'
                             ? '/blog/bakhsnameBanner.jpg'
-                            : params.slug === 'news_letters'
+                            : params.slug === 'news-letters'
                             ? '/blog/khabarnameBanner.jpg'
                             : '/blog/maghalatBanner.jpg',
                     ]}
                     mobileData={[
                         params.slug === 'circular_letters'
                             ? '/blog/bakhshnameMobileBanner.jpg'
-                            : params.slug === 'news_letters'
+                            : params.slug === 'news-letters'
                             ? '/blog/khabarnameMobileBanner.jpg'
                             : '/blog/maghalatMobileBanner.jpg',
                     ]}
@@ -211,9 +211,9 @@ export default function Category() {
                     >
                         <h1>
                             دسته بندی:
-                            {params.slug === 'circular_letters'
+                            {params.slug === 'circular-letters'
                                 ? 'بخشنامه گمرکی'
-                                : params.slug === 'news_letters'
+                                : params.slug === 'news-letters'
                                 ? 'خبرنامه گمرکی'
                                 : 'مقالات گمرکی'}
                         </h1>
@@ -224,13 +224,13 @@ export default function Category() {
                         <div className="absolute right-0 top-14 bg-white shadow rounded-2xl flex flex-col gap-2 w-96 overflow-hidden z-20">
                             <Link
                                 className="p-2 hover:bg-secondary"
-                                href="/blog/circular_letters"
+                                href="/blog/circular-letters"
                             >
                                 بخشنامه گمرکی
                             </Link>
                             <Link
                                 className="p-2 hover:bg-secondary"
-                                href="/blog/news_letters"
+                                href="/blog/news-letters"
                             >
                                 خبرنامه گمرکی
                             </Link>

@@ -72,8 +72,8 @@ export default function Footer() {
                         مجله گمرکی
                     </div>
                     <div className="flex flex-col gap-3  text-sm sm:text-bas">
-                        <Link href="blog/circular_letters">بخشنامه گمرکی </Link>
-                        <Link href="blog/news_letters">خبرنامه گمرکی </Link>
+                        <Link href="blog/circular-letters">بخشنامه گمرکی </Link>
+                        <Link href="blog/news-letters">خبرنامه گمرکی </Link>
                         <Link href="blog/posts">مقالات گمرکی </Link>
                     </div>
                 </div>
