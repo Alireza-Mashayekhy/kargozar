@@ -1,3 +1,4 @@
+'use client';
 import '@/assets/styles/globals.css';
 import '@/assets/styles/font.scss';
 import { Toaster } from 'react-hot-toast';
@@ -9,10 +10,8 @@ import Script from 'next/script';
 
 export default function RootLayout({
     children,
-    team,
 }: {
     children: React.ReactNode;
-    team: React.ReactNode;
 }) {
     const jsonLd: WithContext<Person> = {
         '@context': 'https://schema.org',

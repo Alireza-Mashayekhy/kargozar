@@ -3,8 +3,9 @@ import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
 
 import axios from 'axios';
+import Image from 'next/image';
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaTelegramPlane } from 'react-icons/fa';
 
@@ -14,6 +15,28 @@ export default function Contact() {
     const [description, setDescription] = useState('');
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
+    const [metaInfo, setMetaInfo] = useState([
+        {
+            value: '',
+        },
+        {
+            value: '',
+        },
+        {
+            value: '',
+        },
+    ]);
+    useEffect(() => {
+        getMeta();
+    }, []);
+
+    async function getMeta() {
+        await axios
+            .get('https://api.kargozargomrok.com/api/meta-info')
+            .then((res) => {
+                setMetaInfo(res.data.data);
+            });
+    }
 
     const socials = [
         {
@@ -84,26 +107,26 @@ export default function Contact() {
                             <div className="w-1/2">
                                 <div className="flex flex-col gap-3">
                                     <h3 className="font-bold text-lg sm:text-2xl text-primary-1">
-                                        شماره تماس 1:
+                                        شماره تلفن:
                                     </h3>
                                     <div
                                         className="text-sm sm:text-lg pr-4"
                                         style={{ direction: 'ltr' }}
                                     >
-                                        021_28427180
+                                        {metaInfo[1].value}
                                     </div>
                                 </div>
                             </div>
                             <div className="w-1/2">
                                 <div className="flex flex-col gap-3">
                                     <h3 className="font-bold text-lg sm:text-2xl text-primary-1">
-                                        شماره تماس 2:
+                                        شماره موبایل:
                                     </h3>
                                     <div
                                         className="text-sm sm:text-lg pr-4"
                                         style={{ direction: 'ltr' }}
                                     >
-                                        09128938490
+                                        {metaInfo[0].value}
                                     </div>
                                 </div>
                             </div>
@@ -114,9 +137,7 @@ export default function Contact() {
                                     آدرس:
                                 </h3>
                                 <div className="text-sm sm:text-lg pr-4">
-                                    خیـــابـــان آزادی، خیـــابـــان حبیب الله،
-                                    خیابان قاسمی،جنب جهاد دانشگاهی شریف، مرکز
-                                    نوآوری باکس
+                                    {metaInfo[2].value}
                                 </div>
                             </div>
                         </div>
@@ -140,26 +161,14 @@ export default function Contact() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between shadow-md rounded-2xl bg-secondary p-8 w-full lg:w-2/5 gap-6">
-                        <Avatar
-                            image="/about/user.jpg"
-                            name="محمدامین قنبری"
-                            vertical
+                    <div className="flex shadow-md rounded-2xl bg-secondary w-full lg:w-2/5 overflow-hidden">
+                        <Image
+                            src="/contact/middleImage.jpg"
+                            width={500}
+                            height={500}
+                            alt="contact image"
+                            className="w-full h-full"
                         />
-                        <p className="leading-loose text-justify text-xs sm:text-sm">
-                            با سالم بنده کارگزار رسمی گمرک ایران هستم و همچنین
-                            مدیریت مجموعه کارگزار گمرک و این وب سایت را برعهده
-                            دارم و تجربه بنده بیش از 10 سال در زمینه بازرگانی و
-                            فعالیت ترخیص انواع کالاهای وارداتی و صادراتی میباشد
-                            و میتوانم با همراه تیم با تجربه خود کالای شما
-                            بازرگان عزیر و گرامی را از تمامی گمرکات کشور از جمله
-                            گمرکات مستقر در مناطق آزاد تجاری و ویژه اقتصادی با
-                            انجام تمامی مراحل تشریفات گمرکی رویه های
-                            مربوط)واردات و صادرات( در کوتاهترین زمان و با کمترین
-                            هزینه های گمرکی ممکن ترخیص نمایم و همچنین در صورت
-                            ارجاع کالای شما به کمیسیون های اختالفات گمرکی به
-                            نمایندگی از شما در کمیسیون ها شرکت میکنم.
-                        </p>
                     </div>
                 </div>
                 <form onSubmit={sendRequest} className="flex flex-col gap-8">

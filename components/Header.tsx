@@ -11,13 +11,31 @@ import HumberMenu from './HumberMenu';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import axios from 'axios';
 
 export default function Header() {
+    const [isShowMenu, setMenu] = useState(false);
+    const [metaInfo, setMetaInfo] = useState([
+        {
+            value: '',
+        },
+        {
+            value: '',
+        },
+        {
+            value: '',
+        },
+    ]);
+    interface itemsType {
+        link: string;
+        title: string;
+    }
     interface MenuType {
         id: number;
         icon: React.ReactNode;
         name: string;
         link: string;
+        items: Array<itemsType>;
     }
 
     const pathname = usePathname();
@@ -26,36 +44,57 @@ export default function Header() {
         setIsMenuOpen(false);
     }, [pathname]);
 
+    useEffect(() => {
+        getMeta();
+    }, []);
+
+    async function getMeta() {
+        await axios
+            .get('https://api.kargozargomrok.com/api/meta-info')
+            .then((res) => {
+                setMetaInfo(res.data.data);
+            });
+    }
+
     const menus: MenuType[] = [
         {
             id: 1,
             icon: <HiOutlineHome color="white" className="w-5 h-5" />,
             name: 'صفحه اصلی',
             link: '/',
+            items: [],
         },
         {
             id: 2,
             icon: <FaRegNewspaper color="white" className="w-5 h-5" />,
-            name: 'اخبارنامه',
+            name: 'مجله گمرکی',
             link: '/blog',
+            items: [
+                { title: 'مقالات گمرکی', link: '/blog/posts' },
+                { title: 'خبرنامه گمرکی', link: '/blog/news-letters' },
+                { title: 'بخشنامه گمرکی', link: '/blog/circular-letters' },
+            ],
         },
         {
             id: 3,
             icon: <MdOutlineDesignServices color="white" className="w-5 h-5" />,
             name: 'خدمات',
             link: '/service',
+            items: [],
         },
         {
             id: 4,
             icon: <PiUsersThree color="white" className="w-5 h-5" />,
             name: 'درباره ما',
             link: '/about',
+            items: [],
         },
         {
             id: 5,
             icon: <AiOutlinePhone color="white" className="w-5 h-5" />,
             name: 'تماس با ما',
             link: '/contact',
+            items: [],
         },
     ];
 
@@ -100,16 +139,43 @@ export default function Header() {
                 <div className="hidden xl:flex items-center gap-5">
                     {menus.map((el) => {
                         return (
-                            <Link
-                                href={el.link}
+                            <div
                                 key={`menu-${el.id}`}
-                                className="flex items-center gap-1 cursor-pointer"
+                                className="flex items-center gap-1 cursor-pointer relative"
+                                onMouseEnter={() => {
+                                    el.items.length && setMenu(true);
+                                }}
+                                onMouseLeave={() => {
+                                    el.items.length && setMenu(false);
+                                }}
                             >
-                                {el.icon}
-                                <div className="text-white text-lg">
-                                    {el.name}
-                                </div>
-                            </Link>
+                                <Link
+                                    href={el.link}
+                                    className="flex items-center gap-1 cursor-pointer"
+                                >
+                                    {el.icon}
+                                    <div className="text-white text-lg">
+                                        {el.name}
+                                    </div>
+                                </Link>
+                                {isShowMenu && (
+                                    <div className=" absolute top-7 pt-5 ">
+                                        <div className="bg-primary-2 rounded-md shadow-md flex flex-col gap-2 overflow-hidden">
+                                            {el.items.map((item) => {
+                                                return (
+                                                    <Link
+                                                        key={item.title}
+                                                        href={item.link}
+                                                        className="p-2 whitespace-nowrap hover:bg-white"
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         );
                     })}
                 </div>
@@ -121,15 +187,19 @@ export default function Header() {
                 >
                     ثبت سفارش
                 </Link>
-                <button
-                    className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary"
-                    style={{ direction: 'ltr' }}
-                >
-                    021_28427180
-                </button>
-                <button className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary">
-                    09128938490
-                </button>
+                {metaInfo[0].value && (
+                    <button
+                        className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary"
+                        style={{ direction: 'ltr' }}
+                    >
+                        {metaInfo[0].value}
+                    </button>
+                )}
+                {metaInfo[1].value && (
+                    <button className="text-primary-1 px-5 py-1.5 rounded-lg bg-secondary">
+                        {metaInfo[1].value}
+                    </button>
+                )}
             </div>
             <HumberMenu
                 active={isMenuOpen}

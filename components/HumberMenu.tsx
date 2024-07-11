@@ -71,7 +71,7 @@ export default function HumberMenu({
                     className="w-8 h-8"
                 />
             ),
-            name: 'اخبارنامه',
+            name: 'مجله گمرکی',
             link: '/blog',
         },
         {

@@ -1,8 +1,32 @@
 'use client';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
+    const [metaInfo, setMetaInfo] = useState([
+        {
+            value: '',
+        },
+        {
+            value: '',
+        },
+        {
+            value: '',
+        },
+    ]);
+    useEffect(() => {
+        getMeta();
+    }, []);
+
+    async function getMeta() {
+        await axios
+            .get('https://api.kargozargomrok.com/api/meta-info')
+            .then((res) => {
+                setMetaInfo(res.data.data);
+            });
+    }
     return (
         <div className="flex flex-col items-center gap-12 rounded-t-3xl -mt-5 z-10  px-2.5 md:px-5 relative bg-gradient-to-t from-primary-1 to-black py-16 pb-20 sm:pb-36 xl:py-16">
             <div className="flex gap-10 sm:gap-24">
@@ -87,11 +111,9 @@ export default function Footer() {
                             <div className="whitespace-nowrap">آدرس:</div>
                         </div>
                         <div className="flex flex-col gap-3 text-sm sm:text-bas">
-                            <div className="text-left">09128938490</div>
+                            <div className="text-left">{metaInfo[0].value}</div>
                             <div className="sm:max-w-44 text-justify">
-                                خیـــابـــان آزادی، خیـــابـــان حبیب الله،
-                                خیابان قاسمی، جنب جهاد دانشگاهی شریف، مرکز
-                                نوآوری باکس
+                                {metaInfo[2].value}
                             </div>
                         </div>
                     </div>
