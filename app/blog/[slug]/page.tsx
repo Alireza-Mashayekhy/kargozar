@@ -18,8 +18,16 @@ export default function Category() {
     const [total, setTotal] = useState(0);
     const [isShowCategories, setCategories] = useState(false);
     const [searchedText, setSearchText] = useState('');
-
     const params = useParams();
+
+    const title = `اخبرنامه گمرکی -
+                ${
+                    params.slug === 'circular-letters'
+                        ? 'بخشنامه گمرکی'
+                        : params.slug === 'news-letters'
+                        ? 'خبرنامه گمرکی'
+                        : 'مقالات گمرکی'
+                }`;
 
     const search = useDebouncedCallback((value) => {
         setLoading(true);
@@ -60,14 +68,7 @@ export default function Category() {
                     content="width=device-width, initial-scale=1"
                 />
                 <meta charSet="utf-8" />
-                <title>
-                    اخبرنامه گمرکی -{' '}
-                    {params.slug === 'circular-letters'
-                        ? 'بخشنامه گمرکی'
-                        : params.slug === 'news-letters'
-                        ? 'خبرنامه گمرکی'
-                        : 'مقالات گمرکی'}
-                </title>
+                <title>{title}</title>
                 <meta
                     name="description"
                     content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
@@ -169,14 +170,7 @@ export default function Category() {
                 content="width=device-width, initial-scale=1"
             />
             <meta charSet="utf-8" />
-            <title>
-                اخبرنامه گمرکی -{' '}
-                {params.slug === 'circular-letters'
-                    ? 'بخشنامه گمرکی'
-                    : params.slug === 'news-letters'
-                    ? 'خبرنامه گمرکی'
-                    : 'مقالات گمرکی'}
-            </title>
+            <title>{title}</title>
             <meta
                 name="description"
                 content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس

@@ -13,6 +13,8 @@ import { useParams } from 'next/navigation';
 
 export default function BlogDetail() {
     const fileRef = useRef<any>();
+    const params = useParams();
+    const [title, setTitle] = useState('اخبرنامه گمرک');
 
     interface agentType {
         image: string;
@@ -54,8 +56,6 @@ export default function BlogDetail() {
         created_at: '',
     });
 
-    const params = useParams();
-
     useEffect(() => {
         if (params.slugDetail) {
             setLoading(true);
@@ -66,6 +66,7 @@ export default function BlogDetail() {
                 .then((res) => {
                     setData(res.data.data);
                     setLoading(false);
+                    setTitle(`اخبرنامه گمرک - ${res.data.data.title}`);
                 });
         }
     }, [params.slug, params.slugDetail]);
@@ -138,7 +139,7 @@ export default function BlogDetail() {
                 content="width=device-width, initial-scale=1"
             />
             <meta charSet="utf-8" />
-            <title>اخبرنامه گمرکی - {blogData.title}</title>
+            <title>{title}</title>
             <meta
                 name="description"
                 content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
