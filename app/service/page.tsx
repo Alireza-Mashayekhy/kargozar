@@ -43,8 +43,8 @@ export default function Service() {
             <link rel="canonical" href={`https://kargozargomrok.com/Service`} />
             <div className="flex flex-col gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
-                    data={['/service/banner.png']}
-                    mobileData={['/service/mobileBanner.png']}
+                    data={['/service/banner.jpg']}
+                    mobileData={['/service/mobileBanner.jpg']}
                 />
                 <div className="flex flex-col gap-4 sm:gap-9">
                     <h1 className="hidden">بهترین خدمات کارگزار گمرک</h1>
