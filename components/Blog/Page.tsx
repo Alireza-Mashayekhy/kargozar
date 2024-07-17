@@ -61,7 +61,7 @@ export default function Category() {
                 />
                 <meta charSet="utf-8" />
                 <title>
-                    اخبرنامه گمرکی -{' '}
+                    خبرنامه گمرکی -{' '}
                     {router.query.slug === 'circular-letters'
                         ? 'بخشنامه گمرکی'
                         : router.query.slug === 'news-letters'
@@ -170,7 +170,7 @@ export default function Category() {
             />
             <meta charSet="utf-8" />
             <title>
-                اخبرنامه گمرکی -{' '}
+                خبرنامه گمرکی -{' '}
                 {router.query.slug === 'circular-letters'
                     ? 'بخشنامه گمرکی'
                     : router.query.slug === 'news-letters'
@@ -190,14 +190,14 @@ export default function Category() {
             <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={[
-                        router.query.slug === 'circular_letters'
+                        router.query.slug === 'circular-letters'
                             ? '/blog/bakhsnameBanner.jpg'
                             : router.query.slug === 'news-letters'
                             ? '/blog/khabarnameBanner.jpg'
                             : '/blog/maghalatBanner.jpg',
                     ]}
                     mobileData={[
-                        router.query.slug === 'circular_letters'
+                        router.query.slug === 'circular-letters'
                             ? '/blog/bakhshnameMobileBanner.jpg'
                             : router.query.slug === 'news-letters'
                             ? '/blog/khabarnameMobileBanner.jpg'

@@ -1,13 +1,14 @@
 'use client';
-import Avatar from '@/components/Avatar';
 import Banner from '@/components/Banner';
 
 import axios from 'axios';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { FormEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaTelegramPlane } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa6';
 
 export default function Contact() {
     const [full_name, setFullName] = useState('');
@@ -15,6 +16,26 @@ export default function Contact() {
     const [description, setDescription] = useState('');
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
+    const [socials, setSocials] = useState([
+        {
+            icon: (
+                <FaTelegramPlane
+                    color="white"
+                    className="w-5 h-5 sm:w-8 sm:h-8"
+                />
+            ),
+        },
+        {
+            icon: (
+                <FaWhatsapp color="white" className="w-5 h-5 sm:w-8 sm:h-8" />
+            ),
+        },
+        {
+            icon: (
+                <FaInstagram color="white" className="w-5 h-5 sm:w-8 sm:h-8" />
+            ),
+        },
+    ]);
     const [metaInfo, setMetaInfo] = useState([
         {
             value: '',
@@ -35,19 +56,49 @@ export default function Contact() {
             .get('https://api.kargozargomrok.com/api/meta-info')
             .then((res) => {
                 setMetaInfo(res.data.data);
+                setSocials([
+                    {
+                        icon: (
+                            <Link
+                                target="_blank"
+                                href={`https://t.me/${res.data.data[3].value}`}
+                            >
+                                <FaTelegramPlane
+                                    color="white"
+                                    className="w-5 h-5 sm:w-8 sm:h-8"
+                                />
+                            </Link>
+                        ),
+                    },
+                    {
+                        icon: (
+                            <Link
+                                target="_blank"
+                                href={`https://wa.me/${res.data.data[4].value}`}
+                            >
+                                <FaWhatsapp
+                                    color="white"
+                                    className="w-5 h-5 sm:w-8 sm:h-8"
+                                />
+                            </Link>
+                        ),
+                    },
+                    {
+                        icon: (
+                            <Link
+                                href={`https://www.instagram.com/${res.data.data[5].value}`}
+                                target="_blank"
+                            >
+                                <FaInstagram
+                                    color="white"
+                                    className="w-5 h-5 sm:w-8 sm:h-8"
+                                />
+                            </Link>
+                        ),
+                    },
+                ]);
             });
     }
-
-    const socials = [
-        {
-            icon: (
-                <FaTelegramPlane
-                    color="white"
-                    className="w-5 h-5 sm:w-8 sm:h-8"
-                />
-            ),
-        },
-    ];
 
     const sendRequest = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -109,12 +160,12 @@ export default function Contact() {
                                     <h3 className="font-bold text-lg sm:text-2xl text-primary-1">
                                         شماره تلفن:
                                     </h3>
-                                    <div
+                                    <a
+                                        href={`tel:${metaInfo[1].value}`}
                                         className="text-sm sm:text-lg pr-4"
-                                        style={{ direction: 'ltr' }}
                                     >
                                         {metaInfo[1].value}
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                             <div className="w-1/2">
@@ -122,12 +173,13 @@ export default function Contact() {
                                     <h3 className="font-bold text-lg sm:text-2xl text-primary-1">
                                         شماره موبایل:
                                     </h3>
-                                    <div
+                                    <a
+                                        href={`tel:${metaInfo[0].value}`}
                                         className="text-sm sm:text-lg pr-4"
                                         style={{ direction: 'ltr' }}
                                     >
                                         {metaInfo[0].value}
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +198,7 @@ export default function Contact() {
                                 <h3 className="font-bold text-lg sm:text-2xl text-primary-1">
                                     راه های ارتباطی:
                                 </h3>
-                                <div className="flex">
+                                <div className="flex gap-2">
                                     {socials.map((el, index) => {
                                         return (
                                             <div

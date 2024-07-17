@@ -177,14 +177,13 @@ export default function BlogDetail() {
                                 name={blogData.agent.name}
                             />
                             {blogData.file && (
-                                <button
-                                    onClick={() => {
-                                        fileRef.current.src = blogData.file;
-                                    }}
+                                <a
                                     className="flex items-center gap-2 text-white bg-primary-1 rounded-lg py-2 px-4 text-sm sm:text-base"
+                                    href={blogData.file}
+                                    download
                                 >
                                     دانلود بخشنامه <FiDownload color="white" />
-                                </button>
+                                </a>
                             )}
                             <iframe ref={fileRef} className="hidden"></iframe>
                         </div>

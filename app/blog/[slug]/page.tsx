@@ -20,7 +20,7 @@ export default function Category() {
     const [searchedText, setSearchText] = useState('');
     const params = useParams();
 
-    const title = `اخبرنامه گمرکی -
+    const title = `خبرنامه گمرکی -
                 ${
                     params.slug === 'circular-letters'
                         ? 'بخشنامه گمرکی'
@@ -184,14 +184,14 @@ export default function Category() {
             <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
                     data={[
-                        params.slug === 'circular_letters'
+                        params.slug === 'circular-letters'
                             ? '/blog/bakhsnameBanner.jpg'
                             : params.slug === 'news-letters'
                             ? '/blog/khabarnameBanner.jpg'
                             : '/blog/maghalatBanner.jpg',
                     ]}
                     mobileData={[
-                        params.slug === 'circular_letters'
+                        params.slug === 'circular-letters'
                             ? '/blog/bakhshnameMobileBanner.jpg'
                             : params.slug === 'news-letters'
                             ? '/blog/khabarnameMobileBanner.jpg'

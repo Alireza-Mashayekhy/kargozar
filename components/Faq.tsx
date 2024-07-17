@@ -9,6 +9,7 @@ interface dataType {
 
 interface propsType {
     data: dataType[];
+    title?: string;
 }
 
 export default function Faq(props: propsType) {
@@ -16,7 +17,7 @@ export default function Faq(props: propsType) {
     return (
         <div className="flex flex-col gap-5 sm:gap-12">
             <h2 className="font-bold text-xl sm:text-3xl text-primary-1">
-                پرسش متداول درباره کارگزار گمرک
+                {props.title || 'پرسش متداول درباره کارگزار گمرک'}
             </h2>
             <div className="hidden md:flex gap-10">
                 <div className="flex flex-col gap-10 w-1/2">
