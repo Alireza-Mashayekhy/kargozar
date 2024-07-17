@@ -10,11 +10,14 @@ import Image from 'next/image';
 import Subscription from '@/components/Blog/Subscription';
 import BlogSection from '@/components/Blog/Section';
 import { useParams } from 'next/navigation';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 export default function BlogDetail() {
     const fileRef = useRef<any>();
     const params = useParams();
     const [title, setTitle] = useState('اخبرنامه گمرک');
+    const [content, setContent] = useState('');
 
     interface agentType {
         image: string;
@@ -63,10 +66,15 @@ export default function BlogDetail() {
                 .get(
                     `https://api.kargozargomrok.com/api/${params.slug}/${params.slugDetail}`
                 )
-                .then((res) => {
+                .then(async (res) => {
                     setData(res.data.data);
                     setLoading(false);
                     setTitle(`اخبرنامه گمرک - ${res.data.data.title}`);
+                    const processedContent = await remark()
+                        .use(html)
+                        .process(res.data.data.content);
+                    const contentHtml = processedContent.toString();
+                    setContent(contentHtml);
                 });
         }
     }, [params.slug, params.slugDetail]);
@@ -191,20 +199,7 @@ export default function BlogDetail() {
                             {blogData.agent.description}
                         </p>
                     </div>
-                    <p className="text-justify text-sm sm:text-lg">
-                        {blogData.upper_content}
-                    </p>
-                    <Image
-                        className="rounded-3xl shadow-md w-full"
-                        alt="blog image"
-                        title="blog image"
-                        src={blogData.middle_image}
-                        width={500}
-                        height={500}
-                    />
-                    <p className="text-justify text-sm sm:text-lg">
-                        {blogData.lower_content}
-                    </p>
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
                     <Subscription />
                 </div>
                 {blogData.related.length && (
