@@ -34,14 +34,12 @@ export default function Home() {
     useEffect(() => {
         axios.get(`https://api.kargozargomrok.com/api/feed`).then((res) => {
             const myData: never[] = [];
-            res.data.data.circular -
-                letters.map((el: never) => {
-                    myData.push(el);
-                });
-            res.data.data.news -
-                letters.map((el: never) => {
-                    myData.push(el);
-                });
+            res.data.data.circular.map((el: never) => {
+                myData.push(el);
+            });
+            res.data.data.news.map((el: never) => {
+                myData.push(el);
+            });
             res.data.data.posts.map((el: never) => {
                 myData.push(el);
             });
