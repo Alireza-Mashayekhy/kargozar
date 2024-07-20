@@ -1,5 +1,6 @@
 'use client';
 import '@/assets/styles/globals.css';
+import '@/assets/styles/typography.scss';
 import '@/assets/styles/font.scss';
 import { Toaster } from 'react-hot-toast';
 import Header from '@/components/Header';
