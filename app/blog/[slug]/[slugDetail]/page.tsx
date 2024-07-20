@@ -159,7 +159,7 @@ export default function BlogDetail() {
                 href={`https://kargozargomrok.com/blog/${params.slug}/${params.slugDetail}`}
             />
             <div className="flex flex-col gap-10 md:gap-16">
-                <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 pt-28 md:pt-44 mb-10">
+                <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 pt-28 md:pt-44 mb-10 markdown">
                     <Banner
                         data={blogData.images}
                         mobileData={blogData.images}
