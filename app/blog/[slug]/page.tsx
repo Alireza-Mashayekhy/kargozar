@@ -83,17 +83,17 @@ export default function Category() {
                     <Banner
                         data={[
                             params.slug === 'circular-letters'
-                                ? '/blog/bakhsnameBanner.jpg'
+                                ? '/blog/bakhsnameBanner.webp'
                                 : params.slug === 'news-letters'
-                                ? '/blog/khabarnameBanner.jpg'
-                                : '/blog/maghalatBanner.jpg',
+                                ? '/blog/khabarnameBanner.webp'
+                                : '/blog/maghalatBanner.webp',
                         ]}
                         mobileData={[
                             params.slug === 'circular-letters'
-                                ? '/blog/bakhshnameMobileBanner.jpg'
+                                ? '/blog/bakhshnameMobileBanner.webp'
                                 : params.slug === 'news-letters'
-                                ? '/blog/khabarnameMobileBanner.jpg'
-                                : '/blog/maghalatMobileBanner.jpg',
+                                ? '/blog/khabarnameMobileBanner.webp'
+                                : '/blog/maghalatMobileBanner.webp',
                         ]}
                     />
                     <div className="flex flex-wrap gap-5 justify-between items-center relative">
@@ -185,17 +185,17 @@ export default function Category() {
                 <Banner
                     data={[
                         params.slug === 'circular-letters'
-                            ? '/blog/bakhsnameBanner.jpg'
+                            ? '/blog/bakhsnameBanner.webp'
                             : params.slug === 'news-letters'
-                            ? '/blog/khabarnameBanner.jpg'
-                            : '/blog/maghalatBanner.jpg',
+                            ? '/blog/khabarnameBanner.webp'
+                            : '/blog/maghalatBanner.webp',
                     ]}
                     mobileData={[
                         params.slug === 'circular-letters'
-                            ? '/blog/bakhshnameMobileBanner.jpg'
+                            ? '/blog/bakhshnameMobileBanner.webp'
                             : params.slug === 'news-letters'
-                            ? '/blog/khabarnameMobileBanner.jpg'
-                            : '/blog/maghalatMobileBanner.jpg',
+                            ? '/blog/khabarnameMobileBanner.webp'
+                            : '/blog/maghalatMobileBanner.webp',
                     ]}
                 />
                 <div className="flex flex-wrap gap-5 justify-between items-center relative">

@@ -24,7 +24,7 @@ export default function RootLayout({
             streetAddress:
                 'خیـــابـــان آزادی، خیـــابـــان حبیب الله، خیابان قاسمی، جنب جهاد دانشگاهی شریف، مرکز نوآوری باکس',
         },
-        image: '/about/user.jpg',
+        image: '/about/user.webp',
         jobTitle: 'Official customs broker',
         name: 'محمدامین قنبری',
         telephone: '+98-9128938490',
@@ -49,13 +49,13 @@ export default function RootLayout({
             <head>
                 <link
                     rel="icon"
-                    href="/logo/KGLogo.png"
+                    href="/logo/KGLogo.webp"
                     type="image/<generated>"
                     sizes="<generated>"
                 />
                 <link
                     rel="apple-touch-icon"
-                    href="/logo/KGLogo.png"
+                    href="/logo/KGLogo.webp"
                     type="image/<generated>"
                     sizes="<generated>"
                 />

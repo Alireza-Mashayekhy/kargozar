@@ -149,8 +149,8 @@ export default function Contact() {
             <link rel="canonical" href={`https://kargozargomrok.com/contact`} />
             <div className="flex flex-col gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
-                    data={['/contact/banner.png']}
-                    mobileData={['/contact/mobileBanner.jpg']}
+                    data={['/contact/banner.webp']}
+                    mobileData={['/contact/mobileBanner.webp']}
                 />
                 <div className="flex flex-col-reverse lg:flex-row gap-10">
                     <div className="flex flex-col justify-between shadow-md rounded-2xl bg-secondary p-8 w-full lg:w-3/5 gap-6">
@@ -215,7 +215,7 @@ export default function Contact() {
                     </div>
                     <div className="flex shadow-md rounded-2xl bg-secondary w-full lg:w-2/5 overflow-hidden">
                         <Image
-                            src="/contact/middleImage.jpg"
+                            src="/contact/middleImage.webp"
                             width={500}
                             height={500}
                             alt="contact image"

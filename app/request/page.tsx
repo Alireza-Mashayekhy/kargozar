@@ -74,8 +74,8 @@ export default function Request() {
         <div>
             <div className="flex flex-col gap-16 px-2.5 md:px-10 py-28 md:py-44">
                 <Banner
-                    data={['/request.jpg']}
-                    mobileData={['/mobileRequest.jpg']}
+                    data={['/request.webp']}
+                    mobileData={['/mobileRequest.webp']}
                 />
                 <form onSubmit={sendRequest} className="flex flex-col gap-8">
                     <h2 className="font-bold text-xl sm:text-3xl text-primary-1">
@@ -85,7 +85,7 @@ export default function Request() {
                         <div className="flex flex-col w-full md:w-1/2 gap-5 sm:gap-12">
                             <div className="flex flex-col gap-2">
                                 <label>
-                                    نام و نام خانوادگی{' '}
+                                    نام و نام خانوادگی
                                     <span className="text-[#ff0000]">*</span>
                                 </label>
                                 <input

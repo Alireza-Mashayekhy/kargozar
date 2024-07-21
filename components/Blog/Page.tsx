@@ -82,17 +82,17 @@ export default function Category() {
                     <Banner
                         data={[
                             router.query.slug === 'circular-letters'
-                                ? '/blog/bakhsnameBanner.jpg'
+                                ? '/blog/bakhsnameBanner.webp'
                                 : router.query.slug === 'news-letters'
-                                ? '/blog/khabarnameBanner.jpg'
-                                : '/blog/maghalatBanner.jpg',
+                                ? '/blog/khabarnameBanner.webp'
+                                : '/blog/maghalatBanner.webp',
                         ]}
                         mobileData={[
                             router.query.slug === 'circular-letters'
-                                ? '/blog/bakhshnameMobileBanner.jpg'
+                                ? '/blog/bakhshnameMobileBanner.webp'
                                 : router.query.slug === 'news-letters'
-                                ? '/blog/khabarnameMobileBanner.jpg'
-                                : '/blog/maghalatMobileBanner.jpg',
+                                ? '/blog/khabarnameMobileBanner.webp'
+                                : '/blog/maghalatMobileBanner.webp',
                         ]}
                     />
                     <div className="flex flex-wrap gap-5 justify-between items-center relative">
@@ -191,17 +191,17 @@ export default function Category() {
                 <Banner
                     data={[
                         router.query.slug === 'circular-letters'
-                            ? '/blog/bakhsnameBanner.jpg'
+                            ? '/blog/bakhsnameBanner.webp'
                             : router.query.slug === 'news-letters'
-                            ? '/blog/khabarnameBanner.jpg'
-                            : '/blog/maghalatBanner.jpg',
+                            ? '/blog/khabarnameBanner.webp'
+                            : '/blog/maghalatBanner.webp',
                     ]}
                     mobileData={[
                         router.query.slug === 'circular-letters'
-                            ? '/blog/bakhshnameMobileBanner.jpg'
+                            ? '/blog/bakhshnameMobileBanner.webp'
                             : router.query.slug === 'news-letters'
-                            ? '/blog/khabarnameMobileBanner.jpg'
-                            : '/blog/maghalatMobileBanner.jpg',
+                            ? '/blog/khabarnameMobileBanner.webp'
+                            : '/blog/maghalatMobileBanner.webp',
                     ]}
                 />
                 <div className="flex flex-wrap gap-5 justify-between items-center relative">

@@ -97,7 +97,7 @@ export default function HumberMenu({
             link: '/service',
             items: [
                 { title: 'ترخیص  کالا', link: '/service/clearance' },
-                { title: 'مراجع اختالافات گمرکی', link: '/service/commission' },
+                { title: 'مراجع اختلافات گمرکی', link: '/service/commission' },
                 { title: 'مشاوره بازرگانی', link: '/service/counseling' },
             ],
         },
@@ -143,7 +143,7 @@ export default function HumberMenu({
                     <Image
                         alt="Humber KGLogo"
                         title="KGLogo"
-                        src="/logo/KGLogo.png"
+                        src="/logo/KGLogo.webp"
                         className="w-14"
                         width={500}
                         height={500}
@@ -156,7 +156,7 @@ export default function HumberMenu({
                     <Image
                         alt="Humber logo"
                         title="logo"
-                        src="/logo/logo.png"
+                        src="/logo/logo.webp"
                         width={500}
                         height={500}
                         className="w-14"

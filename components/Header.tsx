@@ -89,7 +89,7 @@ export default function Header() {
             link: '/service',
             items: [
                 { title: 'ترخیص  کالا', link: '/service/clearance' },
-                { title: 'مراجع اختالافات گمرکی', link: '/service/commission' },
+                { title: 'مراجع اختلافات گمرکی', link: '/service/commission' },
                 { title: 'مشاوره بازرگانی', link: '/service/counseling' },
             ],
             setMenu: (status: boolean) => {
@@ -130,7 +130,7 @@ export default function Header() {
                         <Image
                             alt="Header KGLogo"
                             title="KGLogo"
-                            src="/logo/KGLogo.png"
+                            src="/logo/KGLogo.webp"
                             className="w-6 md:w-7"
                             width={100}
                             height={100}
@@ -143,7 +143,7 @@ export default function Header() {
                         <Image
                             alt="Header logo"
                             title="logo"
-                            src="/logo/logo.png"
+                            src="/logo/logo.webp"
                             className="w-6 md:w-7"
                             width={500}
                             height={500}

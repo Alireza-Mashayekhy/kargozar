@@ -34,7 +34,7 @@ export default function Footer() {
                     <Image
                         alt="Footer KGLogo"
                         title="KGLogo"
-                        src="/logo/KGLogo.png"
+                        src="/logo/KGLogo.webp"
                         className="w-10 sm:w-14"
                         width={500}
                         height={500}
@@ -47,7 +47,7 @@ export default function Footer() {
                     <Image
                         alt="Footer logo"
                         title="logo"
-                        src="/logo/logo.png"
+                        src="/logo/logo.webp"
                         width={500}
                         height={500}
                         className="w-10 sm:w-14"
@@ -67,7 +67,7 @@ export default function Footer() {
                         مهندس محمدامین قنبری تشکیل شده است تا نیاز های شما
                         بازرگان و صاحبین کالای عزیز را در حوزه ترخیص کالاهای
                         وارداتی و صادراتی در کوتاهترین زمان و با کمترین هزینه
-                        های گمرکی ممکن و مراجع اختالافات گمرکی و مشاوره در زمینه
+                        های گمرکی ممکن و مراجع اختلافات گمرکی و مشاوره در زمینه
                         امور بازرگانی و گمرکی بر طرف سازد.
                     </p>
                 </div>
@@ -107,22 +107,24 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-3 justify-between sm:justify-normal">
                         <div className="flex flex-col gap-3 text-sm sm:text-bas">
-                            <div className="whitespace-nowrap">شماره تماس:</div>
-                            <div className="whitespace-nowrap">شماره ثابت:</div>
+                            <div className="whitespace-nowrap">شماره تلفن:</div>
+                            <div className="whitespace-nowrap">
+                                شماره موبایل:
+                            </div>
                             <div className="whitespace-nowrap">آدرس:</div>
                         </div>
                         <div className="flex flex-col gap-3 text-sm sm:text-bas">
-                            <a
-                                href={`tel:${metaInfo[0].value}`}
-                                className="text-left"
-                            >
-                                {metaInfo[0].value}
-                            </a>
                             <a
                                 href={`tel:${metaInfo[1].value}`}
                                 className="text-left"
                             >
                                 {metaInfo[1].value}
+                            </a>
+                            <a
+                                href={`tel:${metaInfo[0].value}`}
+                                className="text-left"
+                            >
+                                {metaInfo[0].value}
                             </a>
                             <div className="sm:max-w-44 text-justify">
                                 {metaInfo[2].value}

@@ -11,17 +11,17 @@ export default function blog() {
 
     const categories: categoriesType[] = [
         {
-            image: '/blog/maghalat.png',
+            image: '/blog/maghalat.webp',
             title: 'مقالات گمرکی',
             link: 'blog/posts',
         },
         {
-            image: '/blog/khabarname.png',
+            image: '/blog/khabarname.webp',
             title: 'خبرنامه گمرکی',
             link: 'blog/news-letters',
         },
         {
-            image: '/blog/bakhshname.png',
+            image: '/blog/bakhshname.webp',
             title: 'بخشنامه گمرکی',
             link: 'blog/circular-letters',
         },
@@ -33,7 +33,7 @@ export default function blog() {
                 content="width=device-width, initial-scale=1"
             />
             <meta charSet="utf-8" />
-            <title>خبرنامه گمرکی</title>
+            <title>مجله گمرکی</title>
             <meta
                 name="description"
                 content="مجموعه کارگزار گمرک با مدیریت کارگزار رسمی گمرک ایران مهندس
@@ -44,8 +44,8 @@ export default function blog() {
             <div className="flex flex-col gap-10 md:gap-16">
                 <div className="flex flex-col gap-10 md:gap-16 px-2.5 md:px-10 py-28 md:py-44">
                     <Banner
-                        data={['/blog/banner.jpg']}
-                        mobileData={['/blog/mobileBanner.jpg']}
+                        data={['/blog/banner.webp']}
+                        mobileData={['/blog/mobileBanner.webp']}
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-16">
                         {categories.map((item) => {
